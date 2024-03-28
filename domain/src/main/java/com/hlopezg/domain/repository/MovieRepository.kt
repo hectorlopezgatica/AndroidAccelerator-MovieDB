@@ -1,0 +1,11 @@
+package com.hlopezg.domain.repository
+
+import com.hlopezg.domain.entity.Movie
+import kotlinx.coroutines.flow.Flow
+
+interface MovieRepository {
+    fun getMovieList(): Flow<List<Movie>>
+    fun getTvList(): Flow<List<Movie>>
+    fun getMovie(id: String): Flow<Movie>
+    fun getTv(id: String): Flow<Movie>
+}
