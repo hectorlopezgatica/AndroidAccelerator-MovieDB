@@ -5,7 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
     fun getMovieList(): Flow<List<Movie>>
-    fun getTvList(): Flow<List<Movie>>
     fun getMovie(id: String): Flow<Movie>
-    fun getTv(id: String): Flow<Movie>
+    fun saveMovie(movie: Movie): Flow<Movie>
 }
