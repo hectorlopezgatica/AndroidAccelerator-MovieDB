@@ -18,7 +18,7 @@ class MovieRepositoryImpl(
         .onEach {
             localMovieDataSource.saveMovies(it)
         }
-    override fun getMovie(id: String): Flow<Movie> = remoteMovieDataSource.getMovie().onEach {
+    override fun getMovie(id: Long): Flow<Movie> = remoteMovieDataSource.getMovie(id).onEach {
         localMovieDataSource.saveMovies(listOf(it))
     }
 
@@ -27,6 +27,6 @@ class MovieRepositoryImpl(
         localMovieDataSource.saveMovies(listOf(movie))
         this.emit(Unit)
     }.flatMapLatest {
-        getMovie(movie.id.toString())
+        getMovie(movie.id)
     }
 }

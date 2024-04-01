@@ -15,12 +15,12 @@ class TvRepositoryImpl(
 ): TvRepository {
     override fun getTvList(): Flow<List<Tv>> = remoteTvDataSource.getTvs()
 
-    override fun getTv(id: String): Flow<Tv> = remoteTvDataSource.getTv()
+    override fun getTv(id: Long): Flow<Tv> = remoteTvDataSource.getTv(id)
 
     override fun saveTv(tv: Tv): Flow<Tv> = flow {
         localTvDataSource.saveTv(tv)
         this.emit(Unit)
     }.flatMapLatest {
-        getTv(tv.id.toString())
+        getTv(tv.id)
     }
 }

@@ -4,7 +4,7 @@ data class Tv(
     val adult: Boolean,
     val backdropPath: String,
     val genreIds: List<Int>,
-    val id: Int,
+    val id: Long,
     val originalLanguage: String,
     val originalTitle: String,
     val overview: String,
