@@ -5,17 +5,17 @@ import com.hlopezg.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class GetMovieUseCase(
+class GetMoviesUseCase(
     configuration: UseCase.Configuration,
     private val movieRepository: MovieRepository,
-): UseCase<GetMovieUseCase.Request, GetMovieUseCase.Response>(configuration) {
+): UseCase<GetMoviesUseCase.Request, GetMoviesUseCase.Response>(configuration) {
 
     override fun process(request: Request): Flow<Response> =
-        movieRepository.getMovie(request.movieId)
+        movieRepository.getMovieList()
             .map {
                 Response(it)
             }
 
-    data class Request(val movieId: Long) : UseCase.Request
-    data class Response(val movie: Movie) : UseCase.Response
+    object Request : UseCase.Request
+    data class Response(val movies: List<Movie>) : UseCase.Response
 }

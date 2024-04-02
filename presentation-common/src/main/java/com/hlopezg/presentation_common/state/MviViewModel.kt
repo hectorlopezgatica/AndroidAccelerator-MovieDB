@@ -27,6 +27,11 @@ abstract class MviViewModel<T: Any, S: UiState<T>, A: UiAction, E: UiSingleEvent
     abstract fun initState(): S
     abstract fun handleAction(action: A)
 
+    fun submitAction(action: A){
+        viewModelScope.launch {
+            actionFlow.emit(action)
+        }
+    }
     fun submitState(state: S){
         viewModelScope.launch {
             _uiStateFlow.value = state
