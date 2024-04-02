@@ -15,6 +15,8 @@ okHttp = "4.9.0"
 retrofit = "2.9.0"
 moshi = "1.13.0"
 daggerHilt = "2.51"
+navigationCompose= "2.7.7"
+hiltNavigationCompose = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -41,6 +43,8 @@ networking-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", ver
 networking-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
 networking-moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 networking-moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
