@@ -4,7 +4,7 @@ data class MovieListItemModel(
     val id: Long,
     val adult: Boolean,
     val backdropPath: String,
-    val genreIds: List<Int>,
+    val genreIds: List<GenreItemModel>,
     val originalLanguage: String,
     val originalTitle: String,
     val overview: String,
@@ -15,4 +15,9 @@ data class MovieListItemModel(
     val video: Boolean,
     val voteAverage: Double,
     val voteCount: Int,
+)
+
+data class GenreItemModel(
+    val id: Int,
+    val name: String,
 )

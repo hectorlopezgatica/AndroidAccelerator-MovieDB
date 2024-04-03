@@ -1,22 +1,22 @@
 [versions]
-agp = "8.3.0-beta02"
-kotlin = "1.9.0"
+agp = "8.3.1"
+kotlin = "1.9.23"
 coreKtx = "1.12.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.8.2"
-composeBom = "2023.08.00"
+composeBom = "2024.03.00"
 appcompat = "1.6.1"
 material = "1.11.0"
 room = "2.6.1"
-okHttp = "4.9.0"
+okHttp = "4.12.0"
 retrofit = "2.9.0"
 moshi = "1.13.0"
 daggerHilt = "2.51"
 navigationCompose= "2.7.7"
-hiltNavigationCompose = "1.0.0"
+hiltNavigationCompose = "1.2.0"
 viewModel = "2.7.0"
 material3Android = "1.2.1"
 
@@ -35,9 +35,13 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-#material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-#material = { group = "androidx.compose.material", name = "material", version = "1.6.4" }
-room = { group = "androidx.room", name = "room-ktx", version.ref = "room"}
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room"}
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+#androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room" }
+#androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "androidx-room" }
+#androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "androidx-room" }
+#androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "androidx-room" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
 networking-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okHttp" }
@@ -45,6 +49,7 @@ networking-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", ver
 networking-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
 networking-moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 networking-moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version = "2.11.0" }
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version = "viewModel" }

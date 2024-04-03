@@ -1,12 +1,8 @@
 package com.hlopezg.data_remote.source
 
-import com.hlopezg.data_remote.networking.movie.MovieApiModel
-import com.hlopezg.data_remote.networking.movie.MovieService
 import com.hlopezg.data_remote.networking.tv.TvApiModel
 import com.hlopezg.data_remote.networking.tv.TvService
-import com.hlopezg.data_repository.data_source.remote.RemoteMovieDataSource
 import com.hlopezg.data_repository.data_source.remote.RemoteTvDataSource
-import com.hlopezg.domain.entity.Movie
 import com.hlopezg.domain.entity.Tv
 import com.hlopezg.domain.entity.UseCaseException
 import kotlinx.coroutines.flow.Flow
@@ -25,7 +21,7 @@ class RemoteTvDataSourceImpl  @Inject constructor(private val tvService: TvServi
             convert(movieApiModel)
         }
     }.catch {
-        throw UseCaseException.PostException(it)
+        throw UseCaseException.MovieException(it)
     }
 
     override fun getTv(id: Long): Flow<Tv> = flow {
@@ -33,7 +29,7 @@ class RemoteTvDataSourceImpl  @Inject constructor(private val tvService: TvServi
     }.map {
         convert(it)
     }.catch {
-        throw UseCaseException.PostException(it)
+        throw UseCaseException.MovieException(it)
     }
 
     private fun convert(tvApiModel: TvApiModel) =

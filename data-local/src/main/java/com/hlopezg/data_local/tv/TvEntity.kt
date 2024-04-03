@@ -8,7 +8,6 @@ import androidx.room.PrimaryKey
 data class TvEntity(
     val adult: Boolean,
     @ColumnInfo("backdrop_path") val backdropPath: String,
-    @ColumnInfo("genre_ids") val genreIds: List<Int>,
     @PrimaryKey val id: Int,
     @ColumnInfo("original_language") val originalLanguage: String,
     @ColumnInfo("original_title") val originalTitle: String,

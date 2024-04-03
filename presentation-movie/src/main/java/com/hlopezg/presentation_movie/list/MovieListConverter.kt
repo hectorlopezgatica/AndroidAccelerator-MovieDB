@@ -1,6 +1,7 @@
 package com.hlopezg.presentation_movie.list
 
 import android.content.Context
+import com.hlopezg.domain.entity.Genre
 import com.hlopezg.domain.entity.Movie
 import com.hlopezg.domain.usecase.GetMovieUseCase
 import com.hlopezg.domain.usecase.GetMoviesUseCase
@@ -21,20 +22,28 @@ class MovieListConverter @Inject constructor(@ApplicationContext private val con
 
 }
 
+private val imageBaseUrl = "https://image.tmdb.org/t/p/original"
+
 fun Movie.toItemModel() =
     MovieListItemModel(
         id = id,
         adult = adult,
-        backdropPath = backdropPath,
-        genreIds = genreIds,
+        backdropPath = "$imageBaseUrl$backdropPath",
+        genreIds = genreIds.map { it.toGenreItemModel() },
         originalTitle = originalTitle,
         originalLanguage = originalLanguage,
         overview = overview,
-        posterPath = posterPath,
+        posterPath = "$imageBaseUrl$posterPath",
         popularity = popularity,
         releaseDate = releaseDate,
         title = title,
         voteCount = voteCount,
         video = video,
         voteAverage = voteAverage,
+    )
+
+fun Genre.toGenreItemModel() =
+    GenreItemModel(
+        id = id,
+        name = name,
     )

@@ -4,7 +4,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -23,17 +25,20 @@ import com.hlopezg.presentation_movie.single.MovieModel
 fun MovieListScreen(
     viewModel: MovieListViewModel,
     navController: NavController,
-){
-    LaunchedEffect(Unit){
+) {
+    LaunchedEffect(Unit) {
         viewModel.submitAction(MovieListUiAction.Load)
     }
 
     viewModel.uiStateFlow.collectAsState().value.let { state ->
         CommonScreen(state = state) {
-            MovieList(
-                it
-            ) { movieModel ->
-                viewModel.submitAction(action = MovieListUiAction.SingleMovieClick(movieModel))
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(text = "Movies")
+                MovieList(
+                    it
+                ) { movieModel ->
+                    viewModel.submitAction(action = MovieListUiAction.SingleMovieClick(movieModel))
+                }
             }
         }
     }
@@ -43,21 +48,16 @@ fun MovieListScreen(
 fun MovieList(
     movieListModel: MovieListModel,
     onMovieClick: (MovieListItemModel) -> Unit,
-){
-    LazyRow (
-        modifier = Modifier.padding(16.dp),
+) {
+    LazyRow(
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        item {
-            Column (modifier = Modifier.padding(16.dp)) {
-                Text(text = "Movies")
-            }
-        }
-        items(movieListModel.items) {item ->
-            AsyncImage (
+        items(movieListModel.items) { item ->
+            AsyncImage(
                 model = item.posterPath,
                 contentDescription = null,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier
+                    .width(100.dp)
                     .clickable {
                         onMovieClick(item)
                     }

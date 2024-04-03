@@ -1,15 +1,15 @@
 package com.hlopezg.data_local.movie
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "movie")
 data class MovieEntity(
+    @PrimaryKey val movieId: Long,
     val adult: Boolean,
     @ColumnInfo("backdrop_path") val backdropPath: String,
-    @ColumnInfo("genre_ids") val genreIds: List<Int>,
-    @PrimaryKey val id: Int,
     @ColumnInfo("original_language") val originalLanguage: String,
     @ColumnInfo("original_title") val originalTitle: String,
     val overview: String,

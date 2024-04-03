@@ -1,16 +1,16 @@
 package com.hlopezg.data_remote.injection
 
+import com.hlopezg.data_remote.HeaderInterceptor
+import com.hlopezg.data_remote.ResponseInterceptor
 import com.hlopezg.data_remote.networking.movie.MovieService
 import com.hlopezg.data_remote.networking.tv.TvService
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 @Module
@@ -21,20 +21,32 @@ class NetworkModule {
         .Builder()
         .readTimeout(15, TimeUnit.SECONDS)
         .connectTimeout(15, TimeUnit.SECONDS)
+        .addNetworkInterceptor(HeaderInterceptor())
+        .addInterceptor(ResponseInterceptor())
         .build()
 
-    @Provides
-    fun providesMoshi() : Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+/*    @Provides
+    fun providesMoshi() : Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()*/
 
     @Provides
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
+    ): Retrofit = Retrofit.Builder()
+        .baseUrl("https://api.themoviedb.org/")
+        .client(okHttpClient)
+        //.addConverterFactory(MoshiConverterFactory.create(moshi))
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+/*    @Provides
+    fun provideRetrofit(
+        okHttpClient: OkHttpClient,
         moshi: Moshi,
     ): Retrofit = Retrofit.Builder()
-        .baseUrl("https://api.themoviedb.org/3/")
+        .baseUrl("https://api.themoviedb.org/")
         .client(okHttpClient)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
-        .build()
+        .build()*/
 
     @Provides
     fun provideMovieService(retrofit: Retrofit): MovieService = retrofit.create(MovieService::class.java)

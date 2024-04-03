@@ -46,7 +46,8 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.networking.okhttp)
     implementation(libs.networking.retrofit)
-    implementation(libs.networking.converter.moshi)
+/*    implementation(libs.networking.converter.moshi)
     implementation(libs.networking.moshi)
-    implementation(libs.networking.moshi.kotlin)
+    implementation(libs.networking.moshi.kotlin)*/
+    implementation(libs.converter.gson)
 }

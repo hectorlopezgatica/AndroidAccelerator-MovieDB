@@ -7,6 +7,7 @@ import com.hlopezg.presentation_common.state.CommonResultConverter
 import com.hlopezg.presentation_movie.list.MovieListItemModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
+import kotlin.math.roundToInt
 
 class MovieConverter @Inject constructor(@ApplicationContext private val context: Context) :
     CommonResultConverter<GetMovieUseCase.Response, MovieModel>() {
@@ -20,7 +21,7 @@ fun Movie.toMovieModel() =
         id = id,
         adult = adult,
         backdropPath = "$imageBaseUrl$backdropPath",
-        genreIds = genreIds,
+        genreIds = genreIds.map { GenreModel(it.id, it.name)  },
         originalTitle = originalTitle,
         originalLanguage = originalLanguage,
         overview = overview,
@@ -30,5 +31,5 @@ fun Movie.toMovieModel() =
         title = title,
         voteCount = voteCount,
         video = video,
-        voteAverage = voteAverage,
+        voteAverage = (voteAverage * 100).roundToInt(),
     )

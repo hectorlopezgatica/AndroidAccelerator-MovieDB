@@ -1,10 +1,12 @@
 package com.hlopezg.domain.entity
 
+import android.util.Log
+
 sealed class UseCaseException(cause: Throwable) : Throwable(cause) {
 
-    class PostException(cause: Throwable) : UseCaseException(cause)
+    class MovieException(cause: Throwable) : UseCaseException(cause)
 
-    class UserException(cause: Throwable) : UseCaseException(cause)
+    class TvException(cause: Throwable) : UseCaseException(cause)
 
     class UnknownException(cause: Throwable) : UseCaseException(cause)
 
@@ -12,6 +14,7 @@ sealed class UseCaseException(cause: Throwable) : Throwable(cause) {
     companion object {
 
         fun createFromThrowable(throwable: Throwable): UseCaseException {
+            Log.i("USeCaseException", throwable.localizedMessage)
             return if (throwable is UseCaseException) throwable else UnknownException(throwable)
         }
     }
