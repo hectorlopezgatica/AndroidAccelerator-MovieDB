@@ -13,7 +13,7 @@ data class MovieModel(
     val releaseDate: String,
     val title: String,
     val video: Boolean,
-    val voteAverage: Int,
+    val voteAverage: Double,
     val voteCount: Int,
 )
 

@@ -6,6 +6,8 @@ import com.hlopezg.domain.entity.Movie
 import com.hlopezg.domain.usecase.GetMovieUseCase
 import com.hlopezg.domain.usecase.GetMoviesUseCase
 import com.hlopezg.presentation_common.state.CommonResultConverter
+import com.hlopezg.presentation_movie.single.GenreModel
+import com.hlopezg.presentation_movie.single.MovieModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
@@ -25,7 +27,7 @@ class MovieListConverter @Inject constructor(@ApplicationContext private val con
 private val imageBaseUrl = "https://image.tmdb.org/t/p/original"
 
 fun Movie.toItemModel() =
-    MovieListItemModel(
+    MovieModel(
         id = id,
         adult = adult,
         backdropPath = "$imageBaseUrl$backdropPath",
@@ -43,7 +45,7 @@ fun Movie.toItemModel() =
     )
 
 fun Genre.toGenreItemModel() =
-    GenreItemModel(
+    GenreModel(
         id = id,
         name = name,
     )

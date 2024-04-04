@@ -47,7 +47,7 @@ fun MovieListScreen(
 @Composable
 fun MovieList(
     movieListModel: MovieListModel,
-    onMovieClick: (MovieListItemModel) -> Unit,
+    onMovieClick: (MovieModel) -> Unit,
 ) {
     LazyRow(
         horizontalArrangement = Arrangement.spacedBy(4.dp),

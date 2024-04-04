@@ -5,5 +5,5 @@ import com.hlopezg.presentation_movie.single.MovieModel
 
 sealed class MovieListUiAction : UiAction {
     object Load : MovieListUiAction()
-    data class SingleMovieClick(val movie: MovieListItemModel) : MovieListUiAction()
+    data class SingleMovieClick(val movie: MovieModel) : MovieListUiAction()
 }

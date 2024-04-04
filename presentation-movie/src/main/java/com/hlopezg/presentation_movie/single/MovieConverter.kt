@@ -4,7 +4,6 @@ import android.content.Context
 import com.hlopezg.domain.entity.Movie
 import com.hlopezg.domain.usecase.GetMovieUseCase
 import com.hlopezg.presentation_common.state.CommonResultConverter
-import com.hlopezg.presentation_movie.list.MovieListItemModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import kotlin.math.roundToInt
@@ -31,5 +30,5 @@ fun Movie.toMovieModel() =
         title = title,
         voteCount = voteCount,
         video = video,
-        voteAverage = (voteAverage * 100).roundToInt(),
+        voteAverage = voteAverage * 100,
     )
