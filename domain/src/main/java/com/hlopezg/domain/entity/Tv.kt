@@ -1,12 +1,13 @@
 package com.hlopezg.domain.entity
 
+
 data class Tv(
     val adult: Boolean,
-    val backdropPath: String,
-    val genreIds: List<Int>,
+    val backdropPath: String?,
+    val genreIds: List<Genre>,
     val id: Long,
     val originalLanguage: String,
-    val originalTitle: String,
+    val originalName: String,
     val overview: String,
     val popularity: Double,
     val posterPath: String,

@@ -1,5 +1,7 @@
 package com.hlopezg.presentation_movie.single
 
+import com.hlopezg.presentation_common.models.GenreModel
+
 data class MovieModel(
     val id: Long,
     val adult: Boolean,
@@ -17,7 +19,3 @@ data class MovieModel(
     val voteCount: Int,
 )
 
-data class GenreModel(
-    val id: Int,
-    val name: String,
-)

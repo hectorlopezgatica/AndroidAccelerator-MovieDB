@@ -54,7 +54,8 @@ android {
 
 dependencies {
     implementation(project(path = ":presentation-common"))
-    //implementation(project(path = ":presentation-tv"))
+    implementation(project(path = ":presentation-discover"))
+    implementation(project(path = ":presentation-tv"))
     implementation(project(path = ":presentation-movie"))
     implementation(project(path = ":domain"))
     implementation(project(path = ":data-remote"))

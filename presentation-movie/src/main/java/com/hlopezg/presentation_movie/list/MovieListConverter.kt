@@ -2,12 +2,10 @@ package com.hlopezg.presentation_movie.list
 
 import android.content.Context
 import com.hlopezg.domain.entity.Genre
-import com.hlopezg.domain.entity.Movie
-import com.hlopezg.domain.usecase.GetMovieUseCase
 import com.hlopezg.domain.usecase.GetMoviesUseCase
+import com.hlopezg.presentation_common.models.GenreModel
 import com.hlopezg.presentation_common.state.CommonResultConverter
-import com.hlopezg.presentation_movie.single.GenreModel
-import com.hlopezg.presentation_movie.single.MovieModel
+import com.hlopezg.presentation_movie.mapper.toItemModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
@@ -21,31 +19,4 @@ class MovieListConverter @Inject constructor(@ApplicationContext private val con
             }
         )
     }
-
 }
-
-private val imageBaseUrl = "https://image.tmdb.org/t/p/original"
-
-fun Movie.toItemModel() =
-    MovieModel(
-        id = id,
-        adult = adult,
-        backdropPath = "$imageBaseUrl$backdropPath",
-        genreIds = genreIds.map { it.toGenreItemModel() },
-        originalTitle = originalTitle,
-        originalLanguage = originalLanguage,
-        overview = overview,
-        posterPath = "$imageBaseUrl$posterPath",
-        popularity = popularity,
-        releaseDate = releaseDate,
-        title = title,
-        voteCount = voteCount,
-        video = video,
-        voteAverage = voteAverage,
-    )
-
-fun Genre.toGenreItemModel() =
-    GenreModel(
-        id = id,
-        name = name,
-    )

@@ -4,6 +4,8 @@ import com.hlopezg.domain.repository.MovieRepository
 import com.hlopezg.domain.repository.TvRepository
 import com.hlopezg.domain.usecase.GetMovieUseCase
 import com.hlopezg.domain.usecase.GetMoviesUseCase
+import com.hlopezg.domain.usecase.GetTvUseCase
+import com.hlopezg.domain.usecase.GetTvsUseCase
 import com.hlopezg.domain.usecase.UseCase
 import dagger.Module
 import dagger.Provides
@@ -35,9 +37,21 @@ class UseCaseModule {
         movieRepository
     )
 
-   /* @Provides
+    @Provides
+    fun providesGetTvsUseCase(
+        configuration: UseCase.Configuration,
+        tvRepository: TvRepository,
+    ): GetTvsUseCase = GetTvsUseCase(
+        configuration,
+        tvRepository
+    )
+
+    @Provides
     fun providesGetTvUseCase(
         configuration: UseCase.Configuration,
         tvRepository: TvRepository,
-    ): GetT*/
+    ): GetTvUseCase = GetTvUseCase(
+        configuration,
+        tvRepository
+    )
 }

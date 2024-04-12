@@ -1,13 +1,10 @@
 package com.hlopezg.presentation_movie.list
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
@@ -24,7 +21,7 @@ import com.hlopezg.presentation_movie.single.MovieModel
 @Composable
 fun MovieListScreen(
     viewModel: MovieListViewModel,
-    navController: NavController,
+    //navController: NavController,
 ) {
     LaunchedEffect(Unit) {
         viewModel.submitAction(MovieListUiAction.Load)
@@ -32,14 +29,13 @@ fun MovieListScreen(
 
     viewModel.uiStateFlow.collectAsState().value.let { state ->
         CommonScreen(state = state) {
-            Column(modifier = Modifier.padding(16.dp)) {
                 Text(text = "Movies")
                 MovieList(
                     it
                 ) { movieModel ->
                     viewModel.submitAction(action = MovieListUiAction.SingleMovieClick(movieModel))
                 }
-            }
+
         }
     }
 }

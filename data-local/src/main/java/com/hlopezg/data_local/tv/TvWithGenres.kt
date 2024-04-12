@@ -8,7 +8,7 @@ import com.hlopezg.data_local.movie.MovieEntity
 data class TvWithGenres (
     @Embedded val tvEntity: TvEntity,
     @Relation(
-        parentColumn = "tvId",
+        parentColumn = "id",
         entityColumn = "genreId"
     )
     val genres: List<GenreEntity>

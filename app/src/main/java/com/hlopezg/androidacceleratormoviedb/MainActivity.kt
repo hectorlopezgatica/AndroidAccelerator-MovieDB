@@ -6,18 +6,16 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.hlopezg.androidacceleratormoviedb.ui.theme.AndroidAcceleratorMovieDBTheme
+import com.hlopezg.presentation.discover.DiscoverListScreen
 import com.hlopezg.presentation_common.navigation.NavRoutes
-import com.hlopezg.presentation_movie.list.MovieListScreen
 import com.hlopezg.presentation_movie.single.MovieScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,10 +42,13 @@ class MainActivity : ComponentActivity() {
 fun App(navController: NavHostController) {
     NavHost(navController = navController, startDestination = NavRoutes.Movies.route) {
         composable(route = NavRoutes.Movies.route) {
-            MovieListScreen(viewModel = hiltViewModel(), navController = navController)
+            //MovieListScreen(viewModel = hiltViewModel(), navController = navController)
+            DiscoverListScreen(movieViewModel = hiltViewModel(), tvViewModel = hiltViewModel())
+            //TvListScreen(viewModel = hiltViewModel(), navController = navController)
         }
         composable(route = NavRoutes.Movie.route) {
-            MovieScreen(viewModel = hiltViewModel(), movieInput = NavRoutes.Movie.fromEntry(it))
+            //MovieScreen(viewModel = hiltViewModel(), movieInput = NavRoutes.Movie.fromEntry(it))
+            MovieScreen(viewModel = hiltViewModel(),)
         }
         composable(route = NavRoutes.Tv.route) {
 

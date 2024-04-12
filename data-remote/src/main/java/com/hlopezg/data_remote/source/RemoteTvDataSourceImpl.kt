@@ -3,6 +3,7 @@ package com.hlopezg.data_remote.source
 import com.hlopezg.data_remote.networking.tv.TvApiModel
 import com.hlopezg.data_remote.networking.tv.TvService
 import com.hlopezg.data_repository.data_source.remote.RemoteTvDataSource
+import com.hlopezg.domain.entity.Genre
 import com.hlopezg.domain.entity.Tv
 import com.hlopezg.domain.entity.UseCaseException
 import kotlinx.coroutines.flow.Flow
@@ -15,13 +16,13 @@ class RemoteTvDataSourceImpl  @Inject constructor(private val tvService: TvServi
     RemoteTvDataSource {
 
     override fun getTvs(): Flow<List<Tv>> = flow {
-        emit(tvService.getMovies())
+        emit(tvService.discoverTvs().results)
     }.map { moviesApiModel ->
         moviesApiModel.map { movieApiModel ->
             convert(movieApiModel)
         }
     }.catch {
-        throw UseCaseException.MovieException(it)
+        throw UseCaseException.TvException(it)
     }
 
     override fun getTv(id: Long): Flow<Tv> = flow {
@@ -29,7 +30,7 @@ class RemoteTvDataSourceImpl  @Inject constructor(private val tvService: TvServi
     }.map {
         convert(it)
     }.catch {
-        throw UseCaseException.MovieException(it)
+        throw UseCaseException.TvException(it)
     }
 
     private fun convert(tvApiModel: TvApiModel) =
@@ -37,14 +38,14 @@ class RemoteTvDataSourceImpl  @Inject constructor(private val tvService: TvServi
             id = tvApiModel.id,
             adult = tvApiModel.adult,
             backdropPath = tvApiModel.backdropPath,
-            genreIds = tvApiModel.genreIds,
+            genreIds = tvApiModel.genreIds.map { Genre(it, "") },
             originalLanguage = tvApiModel.originalLanguage,
-            originalTitle = tvApiModel.originalTitle,
+            originalName = tvApiModel.originalName,
             overview = tvApiModel.overview,
             popularity = tvApiModel.popularity,
             posterPath = tvApiModel.posterPath,
-            releaseDate = tvApiModel.releaseDate,
-            title = tvApiModel.title,
+            releaseDate = tvApiModel.firstAirDate,
+            title = tvApiModel.name,
             video = tvApiModel.video,
             voteAverage = tvApiModel.voteAverage,
             voteCount = tvApiModel.voteCount,

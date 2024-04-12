@@ -1,6 +1,5 @@
 package com.hlopezg.presentation_movie.single
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,7 +17,7 @@ import com.hlopezg.presentation_common.state.CommonScreen
 @Composable
 fun MovieScreen(
     viewModel: MovieViewModel,
-    movieInput: MovieInput,
+   // movieInput: MovieInput,
 ){
     viewModel.uiStateFlow.collectAsState().value.let {result ->
         CommonScreen(result) { movieModel ->
