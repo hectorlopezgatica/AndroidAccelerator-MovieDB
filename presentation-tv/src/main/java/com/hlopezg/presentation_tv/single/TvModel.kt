@@ -17,4 +17,9 @@ class TvModel(
     val video: Boolean,
     val voteAverage: Double,
     val voteCount: Int,
-)
+){
+    fun getUserScore(): Int{
+        val percentage = (voteAverage * 10).toInt()
+        return percentage
+    }
+}

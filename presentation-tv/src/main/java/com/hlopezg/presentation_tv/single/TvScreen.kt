@@ -1,4 +1,4 @@
-package com.hlopezg.presentation_movie.single
+package com.hlopezg.presentation_tv.single
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,17 +15,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.hlopezg.presentation_common.navigation.MovieInput
+import com.hlopezg.presentation_common.navigation.TvInput
 import com.hlopezg.presentation_common.state.CommonScreen
 import com.hlopezg.presentation_common.utils.Utils
 
 @Composable
-fun MovieScreen(
-    viewModel: MovieViewModel,
-    movieInput: MovieInput,
+fun TvScreen(
+    viewModel: TvViewModel,
+    tvInput: TvInput,
 ) {
     LaunchedEffect(key1 = Unit) {
-        viewModel.handleAction(MovieUiAction.Load(movieInput.movieId))
+        viewModel.handleAction(TvUiAction.Load(tvInput.tvId))
     }
 
     viewModel.uiStateFlow.collectAsState().value.let { result ->
@@ -36,20 +36,20 @@ fun MovieScreen(
 }
 
 @Composable
-fun Movie(movieModel: MovieModel) {
+fun Movie(tvModel: TvModel) {
     Row(modifier = Modifier.padding(16.dp)) {
         AsyncImage(
-            model = movieModel.posterPath,
+            model = tvModel.posterPath,
             contentDescription = null,
             modifier = Modifier.padding(16.dp)
         )
         Column {
-            Text(text = movieModel.title)
-            if (movieModel.genreIds.isNotEmpty()) {
+            Text(text = tvModel.title)
+            if (tvModel.genreIds.isNotEmpty()) {
                 Row {
-                    for ((index, genre) in movieModel.genreIds.withIndex()) {
+                    for ((index, genre) in tvModel.genreIds.withIndex()) {
                         Text(text = genre.name)
-                        if (index != movieModel.genreIds.size - 1) {
+                        if (index != tvModel.genreIds.size - 1) {
                             Text(text = ", ")
                         }
                     }
@@ -61,13 +61,13 @@ fun Movie(movieModel: MovieModel) {
             ) {
                 CircularProgressIndicator(
                     modifier = Modifier.then(Modifier.size(60.dp)),
-                    progress = { movieModel.getUserScore().toFloat() / 100 },
-                    color = Utils.getScoreColor(movieModel.getUserScore()),
+                    progress = { tvModel.getUserScore().toFloat() / 100 },
+                    color = Utils.getScoreColor(tvModel.getUserScore()),
                 )
-                Text(text = "${movieModel.getUserScore()}%")
+                Text(text = "${tvModel.getUserScore()}%")
             }
             Spacer(modifier = Modifier.padding(8.dp))
-            Text(text = movieModel.overview)
+            Text(text = tvModel.overview)
         }
     }
 }

@@ -20,12 +20,12 @@ class TvViewModel @Inject constructor(
     override fun handleAction(action: TvUiAction) {
         when (action) {
             is TvUiAction.Load -> {
-
+                loadTv(action.id)
             }
         }
     }
 
-    fun loadTv(idTv: Long) {
+    private fun loadTv(idTv: Long) {
         viewModelScope.launch {
             tvUseCase.execute(GetTvUseCase.Request(idTv)).map {
                 tvConverter.convert(it)

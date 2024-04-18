@@ -1,6 +1,7 @@
 package com.hlopezg.data_remote.source
 
 import com.hlopezg.data_remote.networking.tv.TvApiModel
+import com.hlopezg.data_remote.networking.tv.TvDetailApiModel
 import com.hlopezg.data_remote.networking.tv.TvService
 import com.hlopezg.data_repository.data_source.remote.RemoteTvDataSource
 import com.hlopezg.domain.entity.Genre
@@ -39,6 +40,24 @@ class RemoteTvDataSourceImpl  @Inject constructor(private val tvService: TvServi
             adult = tvApiModel.adult,
             backdropPath = tvApiModel.backdropPath,
             genreIds = tvApiModel.genreIds.map { Genre(it, "") },
+            originalLanguage = tvApiModel.originalLanguage,
+            originalName = tvApiModel.originalName,
+            overview = tvApiModel.overview,
+            popularity = tvApiModel.popularity,
+            posterPath = tvApiModel.posterPath,
+            releaseDate = tvApiModel.firstAirDate,
+            title = tvApiModel.name,
+            video = tvApiModel.video,
+            voteAverage = tvApiModel.voteAverage,
+            voteCount = tvApiModel.voteCount,
+        )
+
+    private fun convert(tvApiModel: TvDetailApiModel) =
+        Tv(
+            id = tvApiModel.id,
+            adult = tvApiModel.adult,
+            backdropPath = tvApiModel.backdropPath,
+            genreIds = tvApiModel.genreIds.map { Genre(it.id, it.name) },
             originalLanguage = tvApiModel.originalLanguage,
             originalName = tvApiModel.originalName,
             overview = tvApiModel.overview,

@@ -25,7 +25,8 @@ sealed class NavRoutes(
     ){
         fun routeForMovie(movieInput: MovieInput) = String.format(ROUTE_MOVIE, movieInput.movieId)
         fun fromEntry(entry: NavBackStackEntry): MovieInput {
-            return MovieInput(entry.arguments?.getLong(ARG_MOVIE_ID) ?: 0L)
+            val id = entry.arguments?.getString(ARG_MOVIE_ID) ?: ""
+            return MovieInput(id.toLong())
         }
     }
 
@@ -38,7 +39,8 @@ sealed class NavRoutes(
     ){
         fun routeForTv(tvInput: TvInput) = String.format(ROUTE_TV, tvInput.tvId)
         fun fromEntry(entry: NavBackStackEntry): TvInput {
-            return TvInput(entry.arguments?.getLong(ARG_TV_ID) ?: 0L)
+            val id = entry.arguments?.getString(ARG_TV_ID) ?: ""
+            return TvInput(id.toLong())
         }
     }
 }

@@ -7,10 +7,8 @@ import retrofit2.http.Path
 
 interface MovieService {
     @GET("/3/discover/movie")
-    fun getDiscoverMoviesResponse(): Call<ResponseBody>
-    @GET("/3/discover/movie")
     suspend fun getDiscoverMovies(): DiscoverMovieApiModel
 
     @GET("/3/movie/{movie_id}")
-    suspend fun getMovie(@Path("movie_id") idMovie: Long): MovieApiModel
+    suspend fun getMovie(@Path("movie_id") idMovie: Long): MovieDetailApiModel
 }

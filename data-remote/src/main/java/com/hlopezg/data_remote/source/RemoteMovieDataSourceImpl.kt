@@ -1,6 +1,7 @@
 package com.hlopezg.data_remote.source
 
 import com.hlopezg.data_remote.networking.movie.MovieApiModel
+import com.hlopezg.data_remote.networking.movie.MovieDetailApiModel
 import com.hlopezg.data_remote.networking.movie.MovieService
 import com.hlopezg.data_repository.data_source.remote.RemoteMovieDataSource
 import com.hlopezg.domain.entity.Genre
@@ -39,6 +40,24 @@ class RemoteMovieDataSourceImpl @Inject constructor(private val postService: Mov
             adult = movieApiModel.adult,
             backdropPath = movieApiModel.backdropPath,
             genreIds = movieApiModel.genreIds.map { Genre(it, "") },
+            originalLanguage = movieApiModel.originalLanguage,
+            originalTitle = movieApiModel.originalTitle,
+            overview = movieApiModel.overview,
+            popularity = movieApiModel.popularity,
+            posterPath = movieApiModel.posterPath,
+            releaseDate = movieApiModel.releaseDate,
+            title = movieApiModel.title,
+            video = movieApiModel.video,
+            voteAverage = movieApiModel.voteAverage,
+            voteCount = movieApiModel.voteCount,
+        )
+
+    private fun convert(movieApiModel: MovieDetailApiModel) =
+        Movie(
+            id = movieApiModel.id,
+            adult = movieApiModel.adult,
+            backdropPath = movieApiModel.backdropPath,
+            genreIds = movieApiModel.genreIds.map { Genre(it.id, it.name) },
             originalLanguage = movieApiModel.originalLanguage,
             originalTitle = movieApiModel.originalTitle,
             overview = movieApiModel.overview,

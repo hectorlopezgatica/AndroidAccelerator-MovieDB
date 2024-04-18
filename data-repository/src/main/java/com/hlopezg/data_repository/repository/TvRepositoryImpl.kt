@@ -5,6 +5,7 @@ import com.hlopezg.data_repository.data_source.remote.RemoteTvDataSource
 import com.hlopezg.domain.entity.Movie
 import com.hlopezg.domain.entity.Tv
 import com.hlopezg.domain.repository.TvRepository
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
@@ -17,6 +18,7 @@ class TvRepositoryImpl(
 
     override fun getTv(id: Long): Flow<Tv> = remoteTvDataSource.getTv(id)
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     override fun saveTv(tv: Tv): Flow<Tv> = flow {
         localTvDataSource.saveTv(tv)
         this.emit(Unit)

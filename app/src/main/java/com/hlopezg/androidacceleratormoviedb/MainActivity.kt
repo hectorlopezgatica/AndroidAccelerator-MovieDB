@@ -17,6 +17,7 @@ import com.hlopezg.androidacceleratormoviedb.ui.theme.AndroidAcceleratorMovieDBT
 import com.hlopezg.presentation.discover.DiscoverListScreen
 import com.hlopezg.presentation_common.navigation.NavRoutes
 import com.hlopezg.presentation_movie.single.MovieScreen
+import com.hlopezg.presentation_tv.single.TvScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,15 +44,14 @@ fun App(navController: NavHostController) {
     NavHost(navController = navController, startDestination = NavRoutes.Movies.route) {
         composable(route = NavRoutes.Movies.route) {
             //MovieListScreen(viewModel = hiltViewModel(), navController = navController)
-            DiscoverListScreen(movieViewModel = hiltViewModel(), tvViewModel = hiltViewModel())
+            DiscoverListScreen(movieViewModel = hiltViewModel(), tvViewModel = hiltViewModel(), navController = navController)
             //TvListScreen(viewModel = hiltViewModel(), navController = navController)
         }
         composable(route = NavRoutes.Movie.route) {
-            //MovieScreen(viewModel = hiltViewModel(), movieInput = NavRoutes.Movie.fromEntry(it))
-            MovieScreen(viewModel = hiltViewModel(),)
+            MovieScreen(viewModel = hiltViewModel(), movieInput = NavRoutes.Movie.fromEntry(it))
         }
         composable(route = NavRoutes.Tv.route) {
-
+            TvScreen(viewModel = hiltViewModel(), tvInput = NavRoutes.Tv.fromEntry(it))
         }
     }
 }

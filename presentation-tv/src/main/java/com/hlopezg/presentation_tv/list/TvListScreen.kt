@@ -17,25 +17,33 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.hlopezg.presentation_common.state.CommonScreen
 import com.hlopezg.presentation_tv.single.TvModel
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun TvListScreen(
     viewModel: TvListViewModel,
+    navigateToTv: (String) -> Unit,
     //navController: NavController,
 ) {
     LaunchedEffect(Unit) {
         viewModel.submitAction(TvListUiAction.Load)
+        viewModel.singleEventFlow.collectLatest {
+            when (it) {
+                is TvListUiSingleEvent.OpenTvScreen -> {
+                    navigateToTv(it.navRoute)
+                }
+            }
+        }
     }
 
     viewModel.uiStateFlow.collectAsState().value.let { state ->
         CommonScreen(state = state) {
-                Text(text = "Tvs")
+                Text(text = "Tv shows")
                 TvList(
                     it
                 ) { tvModel ->
                     viewModel.submitAction(action = TvListUiAction.SingleMovieClick(tvModel))
                 }
-
         }
     }
 }
@@ -46,7 +54,7 @@ fun TvList(
     onTvClick: (TvModel) -> Unit,
 ) {
     LazyRow(
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         items(tvListModel.items) { item ->
             AsyncImage(

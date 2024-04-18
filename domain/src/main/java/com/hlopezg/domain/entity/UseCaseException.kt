@@ -10,11 +10,9 @@ sealed class UseCaseException(cause: Throwable) : Throwable(cause) {
 
     class UnknownException(cause: Throwable) : UseCaseException(cause)
 
-
     companion object {
-
         fun createFromThrowable(throwable: Throwable): UseCaseException {
-            Log.i("USeCaseException", throwable.localizedMessage)
+            throwable.localizedMessage?.let { Log.i("UseCaseException", it) }
             return if (throwable is UseCaseException) throwable else UnknownException(throwable)
         }
     }
