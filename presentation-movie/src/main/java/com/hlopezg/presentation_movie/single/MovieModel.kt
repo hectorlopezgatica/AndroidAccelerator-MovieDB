@@ -1,25 +1,26 @@
 package com.hlopezg.presentation_movie.single
 
+import com.hlopezg.presentation_common.models.CommonContentDetail
 import com.hlopezg.presentation_common.models.GenreModel
 
 data class MovieModel(
     val id: Long,
     val adult: Boolean,
     val backdropPath: String,
-    val genreIds: List<GenreModel>,
+    override val genreIds: List<GenreModel>,
     val originalLanguage: String,
     val originalTitle: String,
-    val overview: String,
+    override val overview: String,
     val popularity: Double,
-    val posterPath: String,
+    override val posterPath: String,
     val releaseDate: String,
-    val title: String,
+    override val title: String,
     val video: Boolean,
     val voteAverage: Double,
     val voteCount: Int,
-){
+): CommonContentDetail {
 
-    fun getUserScore(): Int{
+    override fun getUserScore(): Int{
         val percentage = (voteAverage * 10).toInt()
         return percentage
     }

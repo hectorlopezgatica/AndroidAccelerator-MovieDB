@@ -1,19 +1,17 @@
 [versions]
 agp = "8.3.2"
 kotlin = "1.9.23"
-coreKtx = "1.12.0"
+coreKtx = "1.13.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.7.0"
-activityCompose = "1.8.2"
-composeBom = "2024.04.00"
+activityCompose = "1.9.0"
+composeBom = "2024.04.01"
 appcompat = "1.6.1"
-material = "1.11.0"
 room = "2.6.1"
 okHttp = "4.12.0"
 retrofit = "2.11.0"
-moshi = "1.13.0"
 daggerHilt = "2.51"
 navigationCompose= "2.7.7"
 hiltNavigationCompose = "1.2.0"
@@ -39,17 +37,10 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room"}
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
-#androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room" }
-#androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "androidx-room" }
-#androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "androidx-room" }
-#androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "androidx-room" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
 networking-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okHttp" }
 networking-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
-networking-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
-networking-moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
-networking-moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
 converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version = "2.11.0" }
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }

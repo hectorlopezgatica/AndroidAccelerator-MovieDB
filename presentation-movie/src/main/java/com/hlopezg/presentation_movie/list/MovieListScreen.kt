@@ -12,7 +12,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.hlopezg.presentation_common.state.CommonScreen
+import com.hlopezg.presentation_common.CommonScreen
 import com.hlopezg.presentation_movie.single.MovieModel
 import kotlinx.coroutines.flow.collectLatest
 
@@ -27,7 +27,6 @@ fun MovieListScreen(
             when (it) {
                 is MovieListUiSingleEvent.OpenMovieScreen -> {
                     navigateToMovie(it.navRoute)
-                //    navController.navigate(it.navRoute)
                 }
             }
         }

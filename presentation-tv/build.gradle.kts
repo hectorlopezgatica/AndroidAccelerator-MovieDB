@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.material3.android)
     implementation(libs.hilt.android)
+    implementation(project(":presentation-common-content-detail"))
     kapt(libs.hilt.android.compiler)
     implementation(libs.navigation.compose)
     implementation(libs.hilt.navigation.compose)

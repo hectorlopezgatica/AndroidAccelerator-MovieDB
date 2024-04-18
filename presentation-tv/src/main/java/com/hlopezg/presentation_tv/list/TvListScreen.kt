@@ -2,8 +2,6 @@ package com.hlopezg.presentation_tv.list
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -13,9 +11,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.hlopezg.presentation_common.state.CommonScreen
+import com.hlopezg.presentation_common.CommonScreen
 import com.hlopezg.presentation_tv.single.TvModel
 import kotlinx.coroutines.flow.collectLatest
 
@@ -23,7 +20,6 @@ import kotlinx.coroutines.flow.collectLatest
 fun TvListScreen(
     viewModel: TvListViewModel,
     navigateToTv: (String) -> Unit,
-    //navController: NavController,
 ) {
     LaunchedEffect(Unit) {
         viewModel.submitAction(TvListUiAction.Load)
@@ -38,12 +34,12 @@ fun TvListScreen(
 
     viewModel.uiStateFlow.collectAsState().value.let { state ->
         CommonScreen(state = state) {
-                Text(text = "Tv shows")
-                TvList(
-                    it
-                ) { tvModel ->
-                    viewModel.submitAction(action = TvListUiAction.SingleMovieClick(tvModel))
-                }
+            Text(text = "Tv shows")
+            TvList(
+                it
+            ) { tvModel ->
+                viewModel.submitAction(action = TvListUiAction.SingleMovieClick(tvModel))
+            }
         }
     }
 }
