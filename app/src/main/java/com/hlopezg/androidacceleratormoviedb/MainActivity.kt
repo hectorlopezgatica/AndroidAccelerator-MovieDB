@@ -32,7 +32,9 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    App(navController)
+                    App(
+                        navController,
+                    )
                 }
             }
         }
@@ -40,18 +42,28 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun App(navController: NavHostController) {
+fun App(
+    navController: NavHostController,
+) {
     NavHost(navController = navController, startDestination = NavRoutes.Movies.route) {
         composable(route = NavRoutes.Movies.route) {
-            //MovieListScreen(viewModel = hiltViewModel(), navController = navController)
-            DiscoverListScreen(movieViewModel = hiltViewModel(), tvViewModel = hiltViewModel(), navController = navController)
-            //TvListScreen(viewModel = hiltViewModel(), navController = navController)
+            DiscoverListScreen(
+                movieViewModel = hiltViewModel(),
+                tvViewModel = hiltViewModel(),
+                navController = navController
+            )
         }
         composable(route = NavRoutes.Movie.route) {
-            MovieScreen(viewModel = hiltViewModel(), movieInput = NavRoutes.Movie.fromEntry(it))
+            MovieScreen(
+                viewModel = hiltViewModel(),
+                movieInput = NavRoutes.Movie.fromEntry(it),
+            )
         }
         composable(route = NavRoutes.Tv.route) {
-            TvScreen(viewModel = hiltViewModel(), tvInput = NavRoutes.Tv.fromEntry(it))
+            TvScreen(
+                viewModel = hiltViewModel(),
+                tvInput = NavRoutes.Tv.fromEntry(it),
+            )
         }
     }
 }

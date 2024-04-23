@@ -25,28 +25,14 @@ class NetworkModule {
         .addInterceptor(ResponseInterceptor())
         .build()
 
-/*    @Provides
-    fun providesMoshi() : Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()*/
-
     @Provides
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
     ): Retrofit = Retrofit.Builder()
         .baseUrl("https://api.themoviedb.org/")
         .client(okHttpClient)
-        //.addConverterFactory(MoshiConverterFactory.create(moshi))
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-
-/*    @Provides
-    fun provideRetrofit(
-        okHttpClient: OkHttpClient,
-        moshi: Moshi,
-    ): Retrofit = Retrofit.Builder()
-        .baseUrl("https://api.themoviedb.org/")
-        .client(okHttpClient)
-        .addConverterFactory(MoshiConverterFactory.create(moshi))
-        .build()*/
 
     @Provides
     fun provideMovieService(retrofit: Retrofit): MovieService = retrofit.create(MovieService::class.java)

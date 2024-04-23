@@ -18,7 +18,9 @@ fun TvScreen(
 
     viewModel.uiStateFlow.collectAsState().value.let { result ->
         CommonScreen(result) { movieModel ->
-            CommonDetailScreen(movieModel)
+            CommonDetailScreen(
+                commonContentDetail = movieModel,
+            )
         }
     }
 }
