@@ -18,12 +18,11 @@ fun PreviewLoadingComponentDetail(){
 
 @Composable
 fun LoadingComponentDetail() {
-    Column(modifier = Modifier.padding(16.dp)
-    ) {
-        ComponentRectangleFullSize(false)
-        ComponentRectangleLineShort(Modifier.padding(paddingValues = PaddingValues(top = 8.dp, bottom = 8.dp)))
-        ComponentRectangleLineLong(Modifier.padding(paddingValues = PaddingValues(bottom = 8.dp)))
-        ComponentCircle(Modifier.padding(paddingValues = PaddingValues(bottom = 8.dp)))
-        ComponentRectangleParagraphLong(Modifier.padding(paddingValues = PaddingValues(bottom = 8.dp)))
+    Column() {
+        ComponentRectangleFullSize()
+        ComponentRectangleLineShort(Modifier.padding(paddingValues = PaddingValues(top = 8.dp, bottom = 8.dp, start = 16.dp, end = 16.dp)))
+        ComponentRectangleLineLong(Modifier.padding(paddingValues = PaddingValues(bottom = 8.dp, start = 16.dp, end = 16.dp)))
+        ComponentCircle(Modifier.padding(paddingValues = PaddingValues(bottom = 8.dp, start = 16.dp, end = 16.dp)))
+        ComponentRectangleParagraphLong(Modifier.padding(paddingValues = PaddingValues(bottom = 8.dp, start = 16.dp, end = 16.dp)))
     }
 }

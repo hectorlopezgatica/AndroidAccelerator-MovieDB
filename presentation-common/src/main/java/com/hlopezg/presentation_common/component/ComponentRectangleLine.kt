@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -58,16 +57,9 @@ fun ComponentRectangleParagraphLong(modifier: Modifier = Modifier) {
 @Composable
 fun ComponentCircle(modifier: Modifier = Modifier) {
     Box(
-        modifier = modifier.background(color = Color.LightGray, shape = CircleShape)
-
-    ) {
-        CircularProgressIndicator(
-            progress = { 1f },
-            color = Color.LightGray,
-            modifier = Modifier
-                .background(color = Color.LightGray, shape = CircleShape)
-                .size(60.dp)
-                .shimmerLoadingAnimation()
-        )
-    }
+        modifier = modifier
+            .background(color = Color.LightGray, shape = CircleShape)
+            .shimmerLoadingAnimation()
+            .size(60.dp)
+    )
 }

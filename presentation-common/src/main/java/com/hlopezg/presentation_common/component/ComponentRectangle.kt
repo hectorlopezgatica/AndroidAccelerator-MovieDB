@@ -7,6 +7,7 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -25,34 +26,29 @@ import androidx.compose.ui.unit.dp
 @Preview(showSystemUi = true)
 @Composable
 fun PreviewComponentRectangleFullSize(){
-    ComponentRectangleFullSize(true)
+    ComponentRectangleFullSize()
 }
 @Composable
-fun ComponentRectangleFullSize(
-    isLightModeActive: Boolean,
-) {
+fun ComponentRectangleFullSize() {
     Box(
         modifier = Modifier
             .background(color = Color.LightGray)
             .aspectRatio(0.9f)
-            .shimmerLoadingAnimation(isLightModeActive)
+            .shimmerLoadingAnimation()
     )
 }
 @Composable
-fun ComponentRectangle(
-    isLightModeActive: Boolean,
-) {
+fun ComponentRectangle() {
     Box(
         modifier = Modifier
             .background(color = Color.LightGray)
             .height(150.dp)
             .width(100.dp)
-            .shimmerLoadingAnimation(isLightModeActive)
+            .shimmerLoadingAnimation()
     )
 }
 
 fun Modifier.shimmerLoadingAnimation(
-    isLightModeActive: Boolean = true,
     widthOfShadowBrush: Int = 500,
     angleOfAxisY: Float = 270f,
     durationMillis: Int = 1000,
@@ -60,7 +56,7 @@ fun Modifier.shimmerLoadingAnimation(
     return composed {
 
         // Step 2.
-        val shimmerColors = ShimmerAnimationData(isLightMode = isLightModeActive).getColours()
+        val shimmerColors = ShimmerAnimationData(isLightMode = !isSystemInDarkTheme()).getColours()
 
         val transition = rememberInfiniteTransition(label = "")
 

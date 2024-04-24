@@ -47,6 +47,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.material3.android)
     implementation(libs.hilt.android)
+    debugImplementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.preview)
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
