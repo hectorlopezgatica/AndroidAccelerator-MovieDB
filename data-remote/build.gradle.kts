@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -14,6 +17,13 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        val localProperties = rootProject.file("local.properties")
+        val apikeyProperties = Properties()
+        apikeyProperties.load(FileInputStream(localProperties))
+
+        buildConfigField("String", "API_KEY", apikeyProperties["apiKey"].toString())
+        buildConfigField("String", "API_SECRET", apikeyProperties["readAccessToken"].toString())
     }
 
     buildTypes {
@@ -24,6 +34,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+    }
+    buildFeatures {
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
