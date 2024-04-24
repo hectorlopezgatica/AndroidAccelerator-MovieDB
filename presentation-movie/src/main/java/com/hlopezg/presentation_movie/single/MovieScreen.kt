@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import com.hlopezg.presentation.content.CommonDetailScreen
-import com.hlopezg.presentation_common.CommonScreen
+import com.hlopezg.presentation_common.component.CommonScreen
 import com.hlopezg.presentation_common.navigation.MovieInput
 
 @Composable

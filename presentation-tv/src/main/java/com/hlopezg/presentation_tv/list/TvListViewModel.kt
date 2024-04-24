@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.hlopezg.domain.usecase.GetTvsUseCase
 import com.hlopezg.presentation_common.navigation.NavRoutes
 import com.hlopezg.presentation_common.navigation.TvInput
+import com.hlopezg.presentation_common.state.LoadingType
 import com.hlopezg.presentation_common.state.MviViewModel
 import com.hlopezg.presentation_common.state.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +17,7 @@ class TvListViewModel @Inject constructor(
     private val getTvsUseCase: GetTvsUseCase,
     private val converter: TvListConverter,
 ) : MviViewModel<TvListModel, UiState<TvListModel>, TvListUiAction, TvListUiSingleEvent>() {
-    override fun initState(): UiState<TvListModel> = UiState.Loading
+    override fun initState(): UiState<TvListModel> = UiState.Loading(LoadingType.RowList)
 
     override fun handleAction(action: TvListUiAction) {
         when (action) {

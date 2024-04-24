@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.hlopezg.domain.usecase.GetMoviesUseCase
 import com.hlopezg.presentation_common.navigation.MovieInput
 import com.hlopezg.presentation_common.navigation.NavRoutes
+import com.hlopezg.presentation_common.state.LoadingType
 import com.hlopezg.presentation_common.state.MviViewModel
 import com.hlopezg.presentation_common.state.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +17,7 @@ class MovieListViewModel @Inject constructor(
     private val getMoviesUseCase: GetMoviesUseCase,
     private val converter: MovieListConverter,
 ) : MviViewModel<MovieListModel, UiState<MovieListModel>, MovieListUiAction, MovieListUiSingleEvent>() {
-    override fun initState(): UiState<MovieListModel> = UiState.Loading
+    override fun initState(): UiState<MovieListModel> = UiState.Loading(LoadingType.RowList)
 
     override fun handleAction(action: MovieListUiAction) {
         when (action) {

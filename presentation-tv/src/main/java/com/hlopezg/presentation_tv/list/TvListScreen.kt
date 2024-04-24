@@ -12,7 +12,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.hlopezg.presentation_common.CommonScreen
+import com.hlopezg.presentation_common.component.CommonScreen
 import com.hlopezg.presentation_tv.single.TvModel
 import kotlinx.coroutines.flow.collectLatest
 
