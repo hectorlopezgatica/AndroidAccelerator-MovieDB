@@ -17,5 +17,5 @@ class GetTvsUseCase (
             }
 
     object Request : UseCase.Request
-    data class Response(val movies: List<Tv>) : UseCase.Response
+    data class Response(val tvList: List<Tv>) : UseCase.Response
 }

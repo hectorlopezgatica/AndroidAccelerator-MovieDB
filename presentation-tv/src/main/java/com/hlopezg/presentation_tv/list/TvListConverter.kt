@@ -12,7 +12,7 @@ class TvListConverter @Inject constructor(@ApplicationContext private val contex
     override fun convertSuccess(data: GetTvsUseCase.Response): TvListModel {
         return TvListModel(
             page = 1,
-            items = data.movies.map {
+            items = data.tvList.map {
                 it.toItemModel()
             }
         )

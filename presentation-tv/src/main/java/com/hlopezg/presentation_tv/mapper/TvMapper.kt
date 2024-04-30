@@ -11,7 +11,7 @@ fun Tv.toItemModel() =
         adult = adult,
         backdropPath = "${Utils.IMAGE_PATH}$backdropPath",
         genreIds = genreIds.map { it.toGenreItemModel() },
-        originalTitle = originalName,
+        originalName = originalName,
         originalLanguage = originalLanguage,
         overview = overview,
         posterPath = "${Utils.IMAGE_PATH}$posterPath",
@@ -19,6 +19,5 @@ fun Tv.toItemModel() =
         releaseDate = releaseDate,
         title = title,
         voteCount = voteCount,
-        video = video,
         voteAverage = voteAverage,
     )

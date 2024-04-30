@@ -17,7 +17,7 @@ fun <T : Any> CommonScreen(state: UiState<T>, onSuccess: @Composable (T) -> Unit
         is UiState.Loading -> {
             when(state.type){
                 LoadingType.ContentDetail -> LoadingComponentDetail()
-                LoadingType.FullScreen -> Loading()
+                LoadingType.DefaultFullScreenSpinner -> Loading()
                 LoadingType.RowList -> LoadingComponentList()
             }
         }

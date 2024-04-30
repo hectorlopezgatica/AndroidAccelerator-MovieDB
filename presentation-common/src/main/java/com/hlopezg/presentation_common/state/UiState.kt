@@ -8,6 +8,6 @@ sealed class UiState<out T: Any> {
 
 sealed class LoadingType{
     data object RowList: LoadingType()
-    data object FullScreen: LoadingType()
+    data object DefaultFullScreenSpinner: LoadingType()
     data object ContentDetail: LoadingType()
 }

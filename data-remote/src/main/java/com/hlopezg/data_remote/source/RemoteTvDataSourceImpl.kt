@@ -47,7 +47,6 @@ class RemoteTvDataSourceImpl  @Inject constructor(private val tvService: TvServi
             posterPath = tvApiModel.posterPath,
             releaseDate = tvApiModel.firstAirDate,
             title = tvApiModel.name,
-            video = tvApiModel.video,
             voteAverage = tvApiModel.voteAverage,
             voteCount = tvApiModel.voteCount,
         )
@@ -65,7 +64,6 @@ class RemoteTvDataSourceImpl  @Inject constructor(private val tvService: TvServi
             posterPath = tvApiModel.posterPath,
             releaseDate = tvApiModel.firstAirDate,
             title = tvApiModel.name,
-            video = tvApiModel.video,
             voteAverage = tvApiModel.voteAverage,
             voteCount = tvApiModel.voteCount,
         )

@@ -58,7 +58,6 @@ fun TvWithGenres.toTv() =
         releaseDate = this.tvEntity.releaseDate,
         title = this.tvEntity.title,
         voteCount = this.tvEntity.voteCount,
-        video = this.tvEntity.video,
         voteAverage = this.tvEntity.voteAverage,
     )
 
@@ -75,7 +74,6 @@ fun Tv.toTvEntity() =
         releaseDate = releaseDate,
         title = title,
         voteCount = voteCount,
-        video = video,
         voteAverage = voteAverage,
     )
 fun GenreEntity.toGenre() =
