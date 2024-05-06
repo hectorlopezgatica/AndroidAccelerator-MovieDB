@@ -1,6 +1,6 @@
 package com.hlopezg.data_local.mapper
 
-import com.hlopezg.data_local.movie.GenreEntity
+import com.hlopezg.data_local.genre.GenreEntity
 import com.hlopezg.data_local.movie.MovieEntity
 import com.hlopezg.data_local.movie.MovieWithGenres
 import com.hlopezg.data_local.tv.TvEntity
@@ -80,4 +80,11 @@ fun GenreEntity.toGenre() =
     Genre(
         id = genreId,
         name = name,
+    )
+
+fun Genre.toGenreEntity(movieId: Long) =
+    GenreEntity(
+        genreId = id,
+        name = name,
+        movieId = movieId,
     )

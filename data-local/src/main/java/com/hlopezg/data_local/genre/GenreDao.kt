@@ -1,4 +1,4 @@
-package com.hlopezg.data_local.tv
+package com.hlopezg.data_local.genre
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -8,16 +8,16 @@ import androidx.room.Transaction
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface TvDao {
+interface GenreDao {
     @Transaction
-    @Query("SELECT * FROM tv")
-    fun getTvs(): Flow<List<TvWithGenres>>
+    @Query("SELECT * FROM movie")
+    fun getGenres(): Flow<List<GenreEntity>>
 
     @Transaction
-    @Query("SELECT * FROM tv WHERE :id = id")
-    fun getTv(id: Long): Flow<TvWithGenres>
+    @Query("SELECT * FROM movie WHERE :id = movieId")
+    fun getGenre(id: Long): Flow<GenreEntity>
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertTvs(tvs: List<TvEntity>)
+    fun insertGenres(genre: List<GenreEntity>)
 }

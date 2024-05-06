@@ -1,4 +1,4 @@
-package com.hlopezg.data_local.movie
+package com.hlopezg.data_local.genre
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -23,10 +23,8 @@ class MovieRepositoryImpl(
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
-    override fun saveMovie(movie: Movie):Flow<Movie> = flow {
-        localMovieDataSource.saveMovies(listOf(movie))
-        this.emit(Unit)
-    }.flatMapLatest {
-        getMovie(movie.id)
+    override fun saveMovies(movies: List<Movie>):Flow<List<Movie>> = flow {
+        localMovieDataSource.saveMovies(movies)
+        this.emit(movies)
     }
 }

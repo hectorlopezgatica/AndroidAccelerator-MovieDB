@@ -15,14 +15,10 @@ class TvRepositoryImpl(
     private val remoteTvDataSource: RemoteTvDataSource,
 ): TvRepository {
     override fun getTvList(): Flow<List<Tv>> = remoteTvDataSource.getTvs()
-
     override fun getTv(id: Long): Flow<Tv> = remoteTvDataSource.getTv(id)
 
-    @OptIn(ExperimentalCoroutinesApi::class)
-    override fun saveTv(tv: Tv): Flow<Tv> = flow {
-        localTvDataSource.saveTv(tv)
-        this.emit(Unit)
-    }.flatMapLatest {
-        getTv(tv.id)
+    override fun saveTv(tvs: List<Tv>): Flow<List<Tv>> = flow {
+        localTvDataSource.saveTv(tvs)
+        this.emit(tvs)
     }
 }

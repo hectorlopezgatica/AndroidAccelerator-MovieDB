@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 interface LocalTvDataSource {
     fun getTvs(): Flow<List<Tv>>
     fun getTv(id: Long): Flow<Tv>
-    suspend fun saveTv(tv: Tv)
+    suspend fun saveTv(tvs: List<Tv>)
 }

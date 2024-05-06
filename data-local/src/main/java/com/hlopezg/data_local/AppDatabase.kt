@@ -2,7 +2,7 @@ package com.hlopezg.data_local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.hlopezg.data_local.movie.GenreEntity
+import com.hlopezg.data_local.genre.GenreEntity
 import com.hlopezg.data_local.movie.MovieDao
 import com.hlopezg.data_local.movie.MovieEntity
 import com.hlopezg.data_local.tv.TvDao
