@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class GetMovieUseCase(
-    configuration: UseCase.Configuration,
+    configuration: Configuration,
     private val movieRepository: MovieRepository,
 ): UseCase<GetMovieUseCase.Request, GetMovieUseCase.Response>(configuration) {
 

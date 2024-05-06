@@ -8,7 +8,6 @@ import com.hlopezg.data_local.genre.GenreDao
 import com.hlopezg.data_local.genre.GenreEntity
 import com.hlopezg.data_local.movie.MovieDao
 import com.hlopezg.data_local.movie.MovieEntity
-import com.hlopezg.data_local.movie.MovieWithGenres
 import com.hlopezg.data_local.tv.TvDao
 import com.hlopezg.data_local.tv.TvEntity
 

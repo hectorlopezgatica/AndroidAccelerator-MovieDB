@@ -1,7 +1,6 @@
 package com.hlopezg.data_local.movie
 
 import androidx.room.ColumnInfo
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

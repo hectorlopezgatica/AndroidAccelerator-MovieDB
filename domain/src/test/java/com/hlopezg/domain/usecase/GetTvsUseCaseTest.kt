@@ -1,7 +1,6 @@
 package com.hlopezg.domain.usecase
 
 import com.hlopezg.domain.TestUtilities
-import com.hlopezg.domain.repository.MovieRepository
 import com.hlopezg.domain.repository.TvRepository
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf

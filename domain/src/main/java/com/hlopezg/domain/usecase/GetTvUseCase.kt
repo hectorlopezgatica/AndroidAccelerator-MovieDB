@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class GetTvUseCase (
-    configuration: UseCase.Configuration,
+    configuration: Configuration,
     private val repository: TvRepository,
 ): UseCase<GetTvUseCase.Request, GetTvUseCase.Response>(configuration) {
     override fun process(request: Request): Flow<Response> =

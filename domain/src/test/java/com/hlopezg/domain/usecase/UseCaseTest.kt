@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Before
@@ -47,7 +46,7 @@ class UseCaseTest{
             }
 
         }
-        runBlockingTest {
+        runTest {
             val result = useCase.execute(request).first()
             Assert.assertTrue((result as Result.Error).exception is UseCaseException.MovieException)
         }
@@ -65,7 +64,7 @@ class UseCaseTest{
             }
 
         }
-        runBlockingTest {
+        runTest {
             val result = useCase.execute(request).first()
             Assert.assertTrue((result as Result.Error).exception is UseCaseException.PostException)
         }
@@ -83,7 +82,7 @@ class UseCaseTest{
             }
 
         }
-        runBlockingTest {
+        runTest {
             val result = useCase.execute(request).first()
             Assert.assertTrue((result as Result.Error).exception is UseCaseException.UnknownException)
         }

@@ -1,6 +1,5 @@
 package com.hlopezg.data_local.source
 
-import com.hlopezg.data_local.genre.GenreDao
 import com.hlopezg.data_local.mapper.toMovie
 import com.hlopezg.data_local.mapper.toMovieEntity
 import com.hlopezg.data_local.movie.MovieDao

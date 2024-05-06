@@ -1,9 +1,7 @@
 package com.hlopezg.presentation_movie.list
 
 import android.content.Context
-import com.hlopezg.domain.entity.Genre
 import com.hlopezg.domain.usecase.GetMoviesUseCase
-import com.hlopezg.presentation_common.models.GenreModel
 import com.hlopezg.presentation_common.state.CommonResultConverter
 import com.hlopezg.presentation_movie.mapper.toItemModel
 import dagger.hilt.android.qualifiers.ApplicationContext

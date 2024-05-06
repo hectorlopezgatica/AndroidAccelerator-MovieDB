@@ -1,13 +1,12 @@
 package com.hlopezg.data_local
 
-import com.hlopezg.data_local.mapper.toMovieEntity
-import com.hlopezg.data_local.mapper.toTvEntity
 import com.hlopezg.data_local.genre.GenreEntity
 import com.hlopezg.data_local.mapper.toGenreEntity
+import com.hlopezg.data_local.mapper.toMovieEntity
+import com.hlopezg.data_local.mapper.toTvEntity
 import com.hlopezg.data_local.movie.MovieWithGenres
 import com.hlopezg.data_local.tv.TvWithGenres
 import com.hlopezg.domain.TestUtilities
-import com.hlopezg.domain.entity.Genre
 
 interface FakeRepositoryFactory{
     fun getMovieWithGenres(): MovieWithGenres

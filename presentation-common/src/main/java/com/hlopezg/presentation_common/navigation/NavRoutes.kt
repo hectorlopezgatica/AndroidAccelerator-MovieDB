@@ -15,9 +15,9 @@ sealed class NavRoutes(
     val route: String,
     val arguments: List<NamedNavArgument> = emptyList()
 ) {
-    object Movies: NavRoutes(ROUTE_MOVIES)
+    data object Movies: NavRoutes(ROUTE_MOVIES)
 
-    object Movie: NavRoutes(
+    data object Movie: NavRoutes(
         route = String.format(ROUTE_MOVIE, "{$ARG_MOVIE_ID}"),
         arguments = listOf(navArgument(ARG_MOVIE_ID) {
             type = NavType.LongType
@@ -30,7 +30,7 @@ sealed class NavRoutes(
         }
     }
 
-    object Tv : NavRoutes(
+    data object Tv : NavRoutes(
         route = String.format(ROUTE_TV, "{$ARG_TV_ID}"),
         arguments = listOf(navArgument(ARG_TV_ID) {
             type = NavType.LongType

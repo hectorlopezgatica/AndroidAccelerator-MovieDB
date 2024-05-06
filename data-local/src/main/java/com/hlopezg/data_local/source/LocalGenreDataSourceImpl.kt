@@ -3,14 +3,9 @@ package com.hlopezg.data_local.source
 import com.hlopezg.data_local.genre.GenreDao
 import com.hlopezg.data_local.mapper.toGenre
 import com.hlopezg.data_local.mapper.toGenreEntity
-import com.hlopezg.data_local.mapper.toTv
-import com.hlopezg.data_local.tv.TvDao
 import com.hlopezg.data_repository.data_source.local.LocalGenreDataSource
-import com.hlopezg.data_repository.data_source.local.LocalTvDataSource
 import com.hlopezg.domain.entity.Genre
-import com.hlopezg.domain.entity.Tv
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
