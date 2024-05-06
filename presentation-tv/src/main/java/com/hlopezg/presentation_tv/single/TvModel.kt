@@ -3,7 +3,7 @@ package com.hlopezg.presentation_tv.single
 import com.hlopezg.presentation_common.models.CommonContentDetail
 import com.hlopezg.presentation_common.models.GenreModel
 
-class TvModel(
+data class TvModel(
     val id: Long,
     val adult: Boolean,
     val backdropPath: String,
