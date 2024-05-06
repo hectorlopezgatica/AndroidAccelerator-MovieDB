@@ -1,6 +1,5 @@
 package com.hlopezg.data_local.genre
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
