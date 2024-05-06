@@ -41,7 +41,6 @@ class TvConverterTest {
                 releaseDate = releaseDate,
                 title = title,
                 voteCount = voteCount,
-                video = video,
                 voteAverage = voteAverage,
             )
         )
@@ -60,7 +59,6 @@ class TvConverterTest {
             releaseDate = releaseDate,
             title = title,
             voteCount = voteCount,
-            video = video,
             voteAverage = voteAverage,
         )
         assertEquals(movieModel, result)

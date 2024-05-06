@@ -48,7 +48,6 @@ class TvListConverterTest {
                     releaseDate = releaseDate,
                     title = title,
                     voteCount = voteCount,
-                    video = video,
                     voteAverage = voteAverage,
                 )
             )
@@ -69,7 +68,6 @@ class TvListConverterTest {
             releaseDate = releaseDate,
             title = title,
             voteCount = voteCount,
-            video = video,
             voteAverage = voteAverage,
         )
         val items = listOf(movieModel)

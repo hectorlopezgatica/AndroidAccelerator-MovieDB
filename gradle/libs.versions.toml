@@ -59,7 +59,7 @@ testing-mockito = {group = "org.mockito.kotlin", name = "mockito-kotlin", versio
 testing-mockito-inline = {group = "org.mockito", name = "mockito-inline", version.ref = "mockitoInlineVersion"}
 testing-kotlinx-coroutines-android ={group = 'org.jetbrains.kotlinx', name='kotlinx-coroutines-android', version.ref ="kotlinxCoroutines"}
 testing-kotlinx-coroutines ={group = 'org.jetbrains.kotlinx', name='kotlinx-coroutines-test', version.ref ="kotlinxCoroutines"}
-testing-kotlinx-coroutines-jvm ={group = 'org.jetbrains.kotlinx', name='kotlinx-coroutines-test-jvm', version.ref ="kotlinxCoroutines"}
+testing-kotlinx-coroutines-jvm ={group = 'org.jetbrains.kotlinx', name='kotlinx-coroutines-test-jvm', version ="1.7.3"}
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
