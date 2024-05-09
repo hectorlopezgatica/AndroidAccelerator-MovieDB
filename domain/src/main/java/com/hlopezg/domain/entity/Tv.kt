@@ -3,7 +3,6 @@ package com.hlopezg.domain.entity
 
 data class Tv(
     val adult: Boolean,
-    val backdropPath: String?,
     val genreIds: List<Genre>,
     val id: Long,
     val originalLanguage: String,

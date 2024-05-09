@@ -7,7 +7,6 @@ import com.hlopezg.data_remote.networking.GenreApiModel
 data class MovieDetailApiModel(
   @SerializedName("id") var id: Long,
   @SerializedName("adult") val adult: Boolean,
-  @SerializedName("backdrop_path") val backdropPath: String,
   @SerializedName("genres") val genreIds: List<GenreApiModel>,
   @SerializedName("original_language") val originalLanguage: String,
   @SerializedName("original_title") val originalTitle: String,

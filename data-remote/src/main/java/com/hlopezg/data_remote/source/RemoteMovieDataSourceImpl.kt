@@ -38,7 +38,6 @@ class RemoteMovieDataSourceImpl @Inject constructor(private val postService: Mov
         Movie(
             id = movieApiModel.id,
             adult = movieApiModel.adult,
-            backdropPath = movieApiModel.backdropPath,
             genreIds = movieApiModel.genreIds.map { Genre(it, "") },
             originalLanguage = movieApiModel.originalLanguage,
             originalTitle = movieApiModel.originalTitle,
@@ -56,7 +55,6 @@ class RemoteMovieDataSourceImpl @Inject constructor(private val postService: Mov
         Movie(
             id = movieApiModel.id,
             adult = movieApiModel.adult,
-            backdropPath = movieApiModel.backdropPath,
             genreIds = movieApiModel.genreIds.map { Genre(it.id, it.name) },
             originalLanguage = movieApiModel.originalLanguage,
             originalTitle = movieApiModel.originalTitle,

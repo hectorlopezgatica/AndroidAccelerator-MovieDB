@@ -6,7 +6,6 @@ import com.hlopezg.presentation_common.models.GenreModel
 data class TvModel(
     val id: Long,
     val adult: Boolean,
-    val backdropPath: String,
     override val genreIds: List<GenreModel>,
     val originalLanguage: String,
     val originalName: String,

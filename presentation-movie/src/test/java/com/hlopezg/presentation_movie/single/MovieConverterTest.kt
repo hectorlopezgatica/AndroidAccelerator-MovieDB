@@ -15,7 +15,6 @@ class MovieConverterTest {
 
     private val id = 1L
     private val adult = true
-    private val backdropPath = "/1XDDXPXGiI8id7MrUxK36ke7gkX.jpg"
     private val genreIds = listOf(Genre(16, "Animation"), Genre(28, "Action"), Genre(10751, "Family"))
     private val originalTitle = "Kung Fu Panda 4"
     private val originalLanguage = "en"
@@ -34,7 +33,6 @@ class MovieConverterTest {
             movie = Movie(
                 id = id,
                 adult = adult,
-                backdropPath = backdropPath,
                 genreIds = genreIds,
                 originalTitle = originalTitle,
                 originalLanguage = originalLanguage,
@@ -52,7 +50,6 @@ class MovieConverterTest {
         val movieModel = MovieModel(
             id = id,
             adult = adult,
-            backdropPath = "https://image.tmdb.org/t/p/original$backdropPath",
             genreIds = genreIds.map { it.toGenreItemModel() },
             originalTitle = originalTitle,
             originalLanguage = originalLanguage,

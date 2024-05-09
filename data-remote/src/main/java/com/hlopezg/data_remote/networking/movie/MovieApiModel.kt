@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName
 data class MovieApiModel(
   @SerializedName("id") var id: Long,
   @SerializedName("adult") val adult: Boolean,
-  @SerializedName("backdrop_path") val backdropPath: String,
   @SerializedName("genre_ids") val genreIds: List<Int>,
   @SerializedName("original_language") val originalLanguage: String,
   @SerializedName("original_title") val originalTitle: String,

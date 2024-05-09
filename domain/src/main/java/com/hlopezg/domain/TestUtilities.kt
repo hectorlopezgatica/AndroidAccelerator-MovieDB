@@ -31,7 +31,6 @@ class TestUtilities : FakeRepositoryFactory() {
     private val movie1 = Movie(
         id = 1L,
         adult = true,
-        backdropPath = "/1XDDXPXGiI8id7MrUxK36ke7gkX.jpg",
         genreIds = genre1,
         originalTitle = "Kung Fu Panda 4",
         originalLanguage = "en",
@@ -47,7 +46,6 @@ class TestUtilities : FakeRepositoryFactory() {
     private val movie2 = Movie(
         id = 2L,
         adult = true,
-        backdropPath = "/4woSOUD0equAYzvwhWBHIJDCM88.jpg",
         genreIds = genre2,
         originalTitle = "No Way Up",
         originalLanguage = "en",
@@ -66,7 +64,6 @@ class TestUtilities : FakeRepositoryFactory() {
     private val tv1 = Tv(
         id = 1L,
         adult = false,
-        backdropPath = "/h0y3OzHzG4yNvn8u3Za6ByH8lrQ.jpg",
         genreIds = genres3,
         originalLanguage = "de",
         originalName = "Sturm der Liebe",
@@ -82,7 +79,6 @@ class TestUtilities : FakeRepositoryFactory() {
     private val tv2 = Tv(
         id = 1L,
         adult = false,
-        backdropPath = "/h0y3OzHzG4yNvn8u3Za6ByH8lrQ.jpg",
         genreIds = genres4,
         originalLanguage = "en",
         originalName = "Watch What Happens Live with Andy Cohen",

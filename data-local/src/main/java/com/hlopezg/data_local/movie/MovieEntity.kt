@@ -8,7 +8,6 @@ import androidx.room.PrimaryKey
 data class MovieEntity(
     @PrimaryKey val movieId: Long,
     val adult: Boolean,
-    @ColumnInfo("backdrop_path") val backdropPath: String,
     @ColumnInfo("original_language") val originalLanguage: String,
     @ColumnInfo("original_title") val originalTitle: String,
     val overview: String,

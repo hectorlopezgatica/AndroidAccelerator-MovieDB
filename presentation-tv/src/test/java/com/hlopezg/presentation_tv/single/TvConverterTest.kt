@@ -12,7 +12,6 @@ class TvConverterTest {
 
     private val id = 1L
     private val adult = true
-    private val backdropPath = "/1XDDXPXGiI8id7MrUxK36ke7gkX.jpg"
     private val genreIds = listOf(Genre(16, "Animation"), Genre(28, "Action"), Genre(10751, "Family"))
     private val originalName = "Kung Fu Panda 4"
     private val originalLanguage = "en"
@@ -22,7 +21,6 @@ class TvConverterTest {
     private val releaseDate = "2024-03-02"
     private val title = "Kung Fu Panda 4"
     private val voteCount = 1235
-    private val video = false
     private val voteAverage = 7.155
 
     @Test
@@ -31,7 +29,6 @@ class TvConverterTest {
             tv = Tv(
                 id = id,
                 adult = adult,
-                backdropPath = backdropPath,
                 genreIds = genreIds,
                 originalName = originalName,
                 originalLanguage = originalLanguage,
@@ -49,7 +46,6 @@ class TvConverterTest {
         val movieModel = TvModel(
             id = id,
             adult = adult,
-            backdropPath = "https://image.tmdb.org/t/p/original$backdropPath",
             genreIds = genreIds.map { it.toGenreItemModel() },
             originalName = originalName,
             originalLanguage = originalLanguage,
