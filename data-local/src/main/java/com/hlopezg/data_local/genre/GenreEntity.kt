@@ -7,5 +7,4 @@ import androidx.room.PrimaryKey
 data class GenreEntity(
     @PrimaryKey val genreId: Int,
     val name: String,
-    val movieId: Long,
 )

@@ -20,12 +20,12 @@ class DataTestUtilities: FakeRepositoryFactory {
     private val movies = TestUtilities.getFakeRepository().getMovies()
     private val movieWithGenres1 = MovieWithGenres(
         movieEntity = movies[0].toMovieEntity(),
-        genres = movies[0].genreIds.map { GenreEntity(genreId = it.id, movieId = movies[0].id, name = it.name) }
+        genres = movies[0].genreIds.map { GenreEntity(genreId = it.id, name = it.name) }
     )
 
     private val movieWithGenres2 = MovieWithGenres(
         movieEntity = movies[1].toMovieEntity(),
-        genres = movies[1].genreIds.map { GenreEntity(genreId = it.id, movieId = movies[1].id, name = it.name) }
+        genres = movies[1].genreIds.map { GenreEntity(genreId = it.id, name = it.name) }
     )
 
     private val moviesWithGenres = listOf(movieWithGenres1, movieWithGenres2)
@@ -33,12 +33,12 @@ class DataTestUtilities: FakeRepositoryFactory {
     private val tvs = TestUtilities.getFakeRepository().getTvs()
     private val tvWithGenres1 = TvWithGenres(
         tvEntity = tvs[0].toTvEntity(),
-        genres = tvs[0].genreIds.map { GenreEntity(genreId = it.id, movieId = tvs[0].id, name = it.name) }
+        genres = tvs[0].genreIds.map { GenreEntity(genreId = it.id, name = it.name) }
     )
 
     private val tvWithGenres2 = TvWithGenres(
         tvEntity = tvs[1].toTvEntity(),
-        genres = tvs[1].genreIds.map { GenreEntity(genreId = it.id, movieId = tvs[1].id, name = it.name) }
+        genres = tvs[1].genreIds.map { GenreEntity(genreId = it.id, name = it.name) }
     )
 
     private val tvsWithGenres = listOf(tvWithGenres1, tvWithGenres2)

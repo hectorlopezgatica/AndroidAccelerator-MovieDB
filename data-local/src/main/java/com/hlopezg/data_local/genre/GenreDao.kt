@@ -10,11 +10,11 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface GenreDao {
     @Transaction
-    @Query("SELECT * FROM movie")
+    @Query("SELECT * FROM genre")
     fun getGenres(): Flow<List<GenreEntity>>
 
     @Transaction
-    @Query("SELECT * FROM movie WHERE :id = movieId")
+    @Query("SELECT * FROM genre WHERE :id = genreId")
     fun getGenre(id: Long): Flow<GenreEntity>
 
     @Transaction

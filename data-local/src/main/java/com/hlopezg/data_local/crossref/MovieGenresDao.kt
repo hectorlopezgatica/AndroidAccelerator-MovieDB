@@ -8,5 +8,5 @@ import androidx.room.Transaction
 interface MovieGenresDao {
     @Transaction
     @Insert
-    fun insert(movieIds: List<Long>, genresIds: List<Long>)
+    fun insert(moviesGenres: MovieGenresCrossRef)
 }
