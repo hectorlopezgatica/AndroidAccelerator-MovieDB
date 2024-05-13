@@ -60,4 +60,7 @@ dependencies {
     implementation(libs.networking.okhttp)
     implementation(libs.networking.retrofit)
     implementation(libs.converter.gson)
+    testImplementation(libs.testing.mockito.inline)
+    testImplementation(libs.testing.mockito)
+    testImplementation(libs.testing.kotlinx.coroutines)
 }

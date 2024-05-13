@@ -12,9 +12,10 @@ abstract class FakeRepositoryFactory {
     abstract fun getTvs(): List<Tv>
 
     abstract fun getGenres(): List<Genre>
+    abstract fun getGenre(): Genre
 }
 
-class TestUtilities : FakeRepositoryFactory() {
+class DomainTestUtilities : FakeRepositoryFactory() {
     private val genre1 = listOf(
         Genre(16, "Animation"),
         Genre(28, "Action"),
@@ -94,7 +95,7 @@ class TestUtilities : FakeRepositoryFactory() {
     private val tvs = listOf(tv1, tv2)
 
     companion object {
-        fun getFakeRepository(): TestUtilities = TestUtilities()
+        fun getFakeRepository(): DomainTestUtilities = DomainTestUtilities()
     }
 
     override fun getMovie(): Movie = movie1
@@ -105,4 +106,6 @@ class TestUtilities : FakeRepositoryFactory() {
     override fun getGenres(): List<Genre> {
         return listOf(genre1 + genre2 + genres3 + genres4).flatMap(List<Genre>::toList).toList()
     }
+
+    override fun getGenre(): Genre = genre1.first()
 }

@@ -5,7 +5,7 @@ import com.hlopezg.data_local.mapper.toTv
 import com.hlopezg.data_local.mapper.toTvEntity
 import com.hlopezg.data_local.source.LocalTvDataSourceImpl
 import com.hlopezg.data_local.tv.TvDao
-import com.hlopezg.domain.TestUtilities
+import com.hlopezg.domain.DomainTestUtilities
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -33,8 +33,8 @@ class LocalTvDataSourceImplTest {
     @ExperimentalCoroutinesApi
     @Test
     fun testAddUsers() = runTest {
-        val localTvs = TestUtilities.getFakeRepository().getTvs().map { it.toTvEntity() }
-        val tvs = TestUtilities.getFakeRepository().getTvs()
+        val localTvs = DomainTestUtilities.getFakeRepository().getTvs().map { it.toTvEntity() }
+        val tvs = DomainTestUtilities.getFakeRepository().getTvs()
         tvDataSource.saveTv(tvs)
         verify(tvDao).insertTvs(localTvs)
     }

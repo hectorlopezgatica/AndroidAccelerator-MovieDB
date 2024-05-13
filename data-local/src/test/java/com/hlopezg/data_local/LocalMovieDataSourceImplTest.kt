@@ -4,7 +4,7 @@ import com.hlopezg.data_local.mapper.toMovie
 import com.hlopezg.data_local.mapper.toMovieEntity
 import com.hlopezg.data_local.movie.MovieDao
 import com.hlopezg.data_local.source.LocalMovieDataSourceImpl
-import com.hlopezg.domain.TestUtilities
+import com.hlopezg.domain.DomainTestUtilities
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -32,8 +32,8 @@ class LocalMovieDataSourceImplTest {
     @ExperimentalCoroutinesApi
     @Test
     fun testAddUsers() = runTest {
-        val localPosts = TestUtilities.getFakeRepository().getMovies().map { it.toMovieEntity() }
-        val posts = TestUtilities.getFakeRepository().getMovies()
+        val localPosts = DomainTestUtilities.getFakeRepository().getMovies().map { it.toMovieEntity() }
+        val posts = DomainTestUtilities.getFakeRepository().getMovies()
         movieDataSource.saveMovies(posts)
         verify(movieDao).insertMovies(localPosts)
     }

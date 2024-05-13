@@ -1,6 +1,6 @@
 package com.hlopezg.domain.usecase
 
-import com.hlopezg.domain.TestUtilities
+import com.hlopezg.domain.DomainTestUtilities
 import com.hlopezg.domain.repository.TvRepository
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -21,7 +21,7 @@ class GetTvUseCaseTest {
     @Test
     fun testProcess() = runTest {
         val request = GetTvUseCase.Request(0L)
-        val tv = TestUtilities.getFakeRepository().getTv()
+        val tv = DomainTestUtilities.getFakeRepository().getTv()
         whenever(tvRepository.getTv(request.tvId)).thenReturn(flowOf(tv))
         val response = useCase.process(request).first()
         Assert.assertEquals(GetTvUseCase.Response(tv), response)

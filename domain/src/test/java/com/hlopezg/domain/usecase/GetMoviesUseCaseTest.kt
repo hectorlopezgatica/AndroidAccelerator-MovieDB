@@ -1,6 +1,6 @@
 package com.hlopezg.domain.usecase
 
-import com.hlopezg.domain.TestUtilities
+import com.hlopezg.domain.DomainTestUtilities
 import com.hlopezg.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -20,7 +20,7 @@ class GetMoviesUseCaseTest {
     @Test
     fun testProcess() = runTest {
         val request = GetMoviesUseCase.Request
-        val movies = TestUtilities.getFakeRepository().getMovies()
+        val movies = DomainTestUtilities.getFakeRepository().getMovies()
         whenever(movieRepository.getMovieList()).thenReturn(flowOf(movies))
         val response = useCase.process(request).first()
         Assert.assertEquals(GetMoviesUseCase.Response(movies), response)

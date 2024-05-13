@@ -1,7 +1,7 @@
 package com.hlopezg.data_remote.networking.movie
 
 import com.google.gson.annotations.SerializedName
-import com.hlopezg.data_remote.networking.GenreApiModel
+import com.hlopezg.data_remote.networking.genre.GenreApiModel
 
 
 data class MovieDetailApiModel(
