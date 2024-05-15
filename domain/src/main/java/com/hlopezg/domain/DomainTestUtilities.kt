@@ -4,28 +4,35 @@ import com.hlopezg.domain.entity.Genre
 import com.hlopezg.domain.entity.Movie
 import com.hlopezg.domain.entity.Tv
 
-/*interface MovieInterface {
-    fun getMovies(): List<Movie>
-    fun getMovie(): Movie
-}*/
-abstract class FakeRepositoryFactory{
+abstract class FakeRepositoryFactory {
     abstract fun getMovie(): Movie
     abstract fun getMovies(): List<Movie>
 
     abstract fun getTv(): Tv
     abstract fun getTvs(): List<Tv>
+
+    abstract fun getGenres(): List<Genre>
+    abstract fun getGenre(): Genre
 }
 
-class TestUtilities: FakeRepositoryFactory() {
+class DomainTestUtilities : FakeRepositoryFactory() {
+    private val genre1 = listOf(
+        Genre(16, "Animation"),
+        Genre(28, "Action"),
+        Genre(10751, "Family")
+    )
+    private val genre2 = listOf(
+        Genre(28, "Action"),
+        Genre(27, "Horror"),
+        Genre(53, "Thriller")
+    )
+    private val genres3 = listOf(Genre(18, "Drama"), Genre(10766, "Soap"))
+    private val genres4 = listOf(Genre(10767, "Talk"), Genre(35, "Comedy"))
+
     private val movie1 = Movie(
         id = 1L,
         adult = true,
-        backdropPath = "/1XDDXPXGiI8id7MrUxK36ke7gkX.jpg",
-        genreIds = listOf(
-            Genre(16, "Animation"),
-            Genre(28, "Action"),
-            Genre(10751, "Family")
-        ),
+        genreIds = genre1,
         originalTitle = "Kung Fu Panda 4",
         originalLanguage = "en",
         overview = "Po is gearing up to become the spiritual leader of his Valley of Peace, but also needs someone to take his place as Dragon Warrior. As such, he will train a new kung fu practitioner for the spot and will encounter a villain called the Chameleon who conjures villains from the past.",
@@ -40,12 +47,7 @@ class TestUtilities: FakeRepositoryFactory() {
     private val movie2 = Movie(
         id = 2L,
         adult = true,
-        backdropPath = "/4woSOUD0equAYzvwhWBHIJDCM88.jpg",
-        genreIds = listOf(
-            Genre(28, "Action"),
-            Genre(27, "Horror"),
-            Genre(53, "Thriller")
-        ),
+        genreIds = genre2,
         originalTitle = "No Way Up",
         originalLanguage = "en",
         overview = "Characters from different backgrounds are thrown together when the plane they're travelling on crashes into the Pacific Ocean. A nightmare fight for survival ensues with the air supply running out and dangers creeping in from all sides.",
@@ -63,8 +65,7 @@ class TestUtilities: FakeRepositoryFactory() {
     private val tv1 = Tv(
         id = 1L,
         adult = false,
-        backdropPath = "/h0y3OzHzG4yNvn8u3Za6ByH8lrQ.jpg",
-        genreIds = listOf(Genre(18, "Drama"), Genre(10766, "Soap")),
+        genreIds = genres3,
         originalLanguage = "de",
         originalName = "Sturm der Liebe",
         overview = "These are the stories of relationships taking place in the fictional five-star hotel Fürstenhof, located in Feldkirchen-Westerham near Rosenheim with the plot revolving around members of the family room area, the hotel owners, and employees.",
@@ -79,8 +80,7 @@ class TestUtilities: FakeRepositoryFactory() {
     private val tv2 = Tv(
         id = 1L,
         adult = false,
-        backdropPath = "/h0y3OzHzG4yNvn8u3Za6ByH8lrQ.jpg",
-        genreIds = listOf(Genre(10767, "Talk"), Genre(35, "Comedy")),
+        genreIds = genres4,
         originalLanguage = "en",
         originalName = "Watch What Happens Live with Andy Cohen",
         overview = "Bravo network executive Andy Cohen discusses pop culture topics with celebrities and reality show personalities.",
@@ -95,14 +95,7 @@ class TestUtilities: FakeRepositoryFactory() {
     private val tvs = listOf(tv1, tv2)
 
     companion object {
-        fun getFakeRepository(): TestUtilities = TestUtilities()
-/*        fun fakeMovie(): Movie = TestUtilities().getMovie()
-
-        fun fakeMovies(): List<Movie> = TestUtilities().getMovies()
-
-        fun fakeTv(): Tv = TestUtilities().getTv()
-
-        fun fakeTvs() : List<Tv> = TestUtilities().getTvs()*/
+        fun getFakeRepository(): DomainTestUtilities = DomainTestUtilities()
     }
 
     override fun getMovie(): Movie = movie1
@@ -110,4 +103,9 @@ class TestUtilities: FakeRepositoryFactory() {
     override fun getTv(): Tv = tv1
 
     override fun getTvs(): List<Tv> = tvs
+    override fun getGenres(): List<Genre> {
+        return listOf(genre1 + genre2 + genres3 + genres4).flatMap(List<Genre>::toList).toList()
+    }
+
+    override fun getGenre(): Genre = genre1.first()
 }

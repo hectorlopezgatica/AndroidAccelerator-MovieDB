@@ -44,4 +44,5 @@ dependencies {
     testImplementation(libs.testing.mockito)
     testImplementation(libs.testing.mockito.inline)
     testImplementation(libs.testing.kotlinx.coroutines)
+    testImplementation(libs.testing.kotlinx.coroutines.jvm)
 }

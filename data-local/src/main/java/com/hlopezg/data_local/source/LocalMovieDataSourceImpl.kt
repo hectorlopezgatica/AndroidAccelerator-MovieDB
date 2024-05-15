@@ -9,7 +9,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class LocalMovieDataSourceImpl @Inject constructor(private val movieDao: MovieDao): LocalMovieDataSource {
+class LocalMovieDataSourceImpl @Inject constructor(
+    private val movieDao: MovieDao,
+): LocalMovieDataSource {
     override fun getMovies(): Flow<List<Movie>> = movieDao.getMovies().map { moviesEntity ->
         moviesEntity.map {
             it.toMovie()
@@ -20,11 +22,9 @@ class LocalMovieDataSourceImpl @Inject constructor(private val movieDao: MovieDa
         movieEntity.toMovie()
     }
 
-    override suspend fun saveMovies(movies: List<Movie>) = movieDao.insertMovies(movies.map { movie ->
-        movie.toMovieEntity()
-        /*
-        add genre dao
-        genreDao.insertGenres(movie.genreIds.map { genre -> genre.toGenreEntity(movie.id) } )
-         */
-    })
+    override suspend fun saveMovies(movies: List<Movie>) {
+        movieDao.insertMovies(movies.map { movie ->
+            movie.toMovieEntity()
+        })
+    }
 }

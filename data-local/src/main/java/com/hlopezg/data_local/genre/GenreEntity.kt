@@ -1,6 +1,5 @@
-package com.hlopezg.data_local.movie
+package com.hlopezg.data_local.genre
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -8,5 +7,4 @@ import androidx.room.PrimaryKey
 data class GenreEntity(
     @PrimaryKey val genreId: Int,
     val name: String,
-    val movieId: Long,
 )

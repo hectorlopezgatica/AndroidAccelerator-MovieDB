@@ -7,11 +7,9 @@ import com.hlopezg.presentation_common.state.UiState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
-import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -20,12 +18,11 @@ import org.mockito.kotlin.whenever
 
 class MovieListViewModelTest {
     @ExperimentalCoroutinesApi
-    private val testDispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
+    private val testDispatcher = UnconfinedTestDispatcher()
     private val getMoviesUseCase =
         mock<GetMoviesUseCase>()
     private val converter = mock<MovieListConverter>()
 
-    //private val updateInteractionUseCase = mock<GetMoviesUseCase>()
     private lateinit var viewModel: MovieListViewModel
 
     @ExperimentalCoroutinesApi
@@ -36,13 +33,6 @@ class MovieListViewModelTest {
             getMoviesUseCase,
             converter,
         )
-    }
-
-    @ExperimentalCoroutinesApi
-    @After
-    fun tearDown() {
-        Dispatchers.resetMain()
-        testDispatcher.cleanupTestCoroutines()
     }
 
     @ExperimentalCoroutinesApi

@@ -2,9 +2,7 @@ package com.hlopezg.presentation_common.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -18,7 +16,7 @@ fun PreviewLoadingComponentDetail(){
 
 @Composable
 fun LoadingComponentDetail() {
-    Column() {
+    Column {
         ComponentRectangleFullSize()
         ComponentRectangleLineShort(Modifier.padding(paddingValues = PaddingValues(top = 8.dp, bottom = 8.dp, start = 16.dp, end = 16.dp)))
         ComponentRectangleLineLong(Modifier.padding(paddingValues = PaddingValues(bottom = 8.dp, start = 16.dp, end = 16.dp)))

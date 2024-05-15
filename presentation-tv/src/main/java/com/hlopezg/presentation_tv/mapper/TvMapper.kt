@@ -9,7 +9,6 @@ fun Tv.toItemModel() =
     TvModel(
         id = id,
         adult = adult,
-        backdropPath = "${Utils.IMAGE_PATH}$backdropPath",
         genreIds = genreIds.map { it.toGenreItemModel() },
         originalName = originalName,
         originalLanguage = originalLanguage,

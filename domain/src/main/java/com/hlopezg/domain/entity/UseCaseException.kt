@@ -12,7 +12,7 @@ sealed class UseCaseException(cause: Throwable) : Throwable(cause) {
 
     companion object {
         fun createFromThrowable(throwable: Throwable): UseCaseException {
-            throwable.localizedMessage?.let { Log.i("UseCaseException", it) }
+            throwable.localizedMessage?.let { println("UseCaseException: $it") }
             return if (throwable is UseCaseException) throwable else UnknownException(throwable)
         }
     }

@@ -1,11 +1,14 @@
 package com.hlopezg.androidacceleratormoviedb.injection
 
+import com.hlopezg.data_repository.data_source.local.LocalGenreDataSource
 import com.hlopezg.data_repository.data_source.local.LocalMovieDataSource
 import com.hlopezg.data_repository.data_source.local.LocalTvDataSource
 import com.hlopezg.data_repository.data_source.remote.RemoteMovieDataSource
 import com.hlopezg.data_repository.data_source.remote.RemoteTvDataSource
+import com.hlopezg.data_repository.repository.GenreRepositoryImpl
 import com.hlopezg.data_repository.repository.MovieRepositoryImpl
 import com.hlopezg.data_repository.repository.TvRepositoryImpl
+import com.hlopezg.domain.repository.GenreRepository
 import com.hlopezg.domain.repository.MovieRepository
 import com.hlopezg.domain.repository.TvRepository
 import dagger.Module
@@ -32,5 +35,12 @@ class RepositoryModule {
     ): TvRepository = TvRepositoryImpl(
         remoteTvDataSource = remoteTvDataSource,
         localTvDataSource = localTvDataSource
+    )
+
+    @Provides
+    fun provideGenreRepository(
+        localGenreDataSource: LocalGenreDataSource,
+    ): GenreRepository = GenreRepositoryImpl(
+        localGenreDataSource = localGenreDataSource
     )
 }

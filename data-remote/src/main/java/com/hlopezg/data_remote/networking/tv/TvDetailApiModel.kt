@@ -6,7 +6,6 @@ import com.hlopezg.domain.entity.Genre
 data class TvDetailApiModel(
     @SerializedName("id") val id: Long,
     @SerializedName("adult") val adult: Boolean,
-    @SerializedName("backdrop_path") val backdropPath: String,
     @SerializedName("genres") val genreIds: List<Genre>,
     @SerializedName("original_language") val originalLanguage: String,
     @SerializedName("original_name") val originalName: String,

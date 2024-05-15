@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class GetTvsUseCase (
-    configuration: UseCase.Configuration,
+    configuration: Configuration,
     private val tvRepository: TvRepository,
 ): UseCase<GetTvsUseCase.Request, GetTvsUseCase.Response>(configuration) {
 

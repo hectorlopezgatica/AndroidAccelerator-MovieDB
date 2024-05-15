@@ -9,7 +9,6 @@ fun Movie.toItemModel() =
     MovieModel(
         id = id,
         adult = adult,
-        backdropPath = "${Utils.IMAGE_PATH}$backdropPath",
         genreIds = genreIds.map { it.toGenreItemModel() },
         originalTitle = originalTitle,
         originalLanguage = originalLanguage,

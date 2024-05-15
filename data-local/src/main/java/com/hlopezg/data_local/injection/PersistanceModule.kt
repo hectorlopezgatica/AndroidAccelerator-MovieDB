@@ -3,6 +3,8 @@ package com.hlopezg.data_local.injection
 import android.content.Context
 import androidx.room.Room
 import com.hlopezg.data_local.AppDatabase
+import com.hlopezg.data_local.crossref.MovieGenresDao
+import com.hlopezg.data_local.genre.GenreDao
 import com.hlopezg.data_local.movie.MovieDao
 import com.hlopezg.data_local.tv.TvDao
 import dagger.Module
@@ -26,4 +28,10 @@ class PersistanceModule {
 
     @Provides
     fun providesTvDao(appDatabase: AppDatabase): TvDao = appDatabase.tvDao()
+
+    @Provides
+    fun providesGenreDao(appDatabase: AppDatabase): GenreDao = appDatabase.genreDao()
+
+    @Provides
+    fun providesMoviesGenres(appDatabase: AppDatabase): MovieGenresDao = appDatabase.movieGenresDao()
 }

@@ -38,7 +38,6 @@ class RemoteTvDataSourceImpl  @Inject constructor(private val tvService: TvServi
         Tv(
             id = tvApiModel.id,
             adult = tvApiModel.adult,
-            backdropPath = tvApiModel.backdropPath,
             genreIds = tvApiModel.genreIds.map { Genre(it, "") },
             originalLanguage = tvApiModel.originalLanguage,
             originalName = tvApiModel.originalName,
@@ -55,7 +54,6 @@ class RemoteTvDataSourceImpl  @Inject constructor(private val tvService: TvServi
         Tv(
             id = tvApiModel.id,
             adult = tvApiModel.adult,
-            backdropPath = tvApiModel.backdropPath,
             genreIds = tvApiModel.genreIds.map { Genre(it.id, it.name) },
             originalLanguage = tvApiModel.originalLanguage,
             originalName = tvApiModel.originalName,

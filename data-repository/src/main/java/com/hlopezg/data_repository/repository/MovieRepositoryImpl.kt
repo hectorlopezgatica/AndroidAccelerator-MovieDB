@@ -4,9 +4,7 @@ import com.hlopezg.data_repository.data_source.local.LocalMovieDataSource
 import com.hlopezg.data_repository.data_source.remote.RemoteMovieDataSource
 import com.hlopezg.domain.entity.Movie
 import com.hlopezg.domain.repository.MovieRepository
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onEach
 
@@ -22,11 +20,8 @@ class MovieRepositoryImpl(
         localMovieDataSource.saveMovies(listOf(it))
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
-    override fun saveMovie(movie: Movie):Flow<Movie> = flow {
-        localMovieDataSource.saveMovies(listOf(movie))
-        this.emit(Unit)
-    }.flatMapLatest {
-        getMovie(movie.id)
+    override fun saveMovies(movies: List<Movie>):Flow<List<Movie>> = flow {
+        localMovieDataSource.saveMovies(movies)
+        this.emit(movies)
     }
 }

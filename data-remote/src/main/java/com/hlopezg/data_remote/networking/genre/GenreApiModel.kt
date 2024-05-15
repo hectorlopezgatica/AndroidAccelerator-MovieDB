@@ -1,4 +1,4 @@
-package com.hlopezg.data_remote.networking
+package com.hlopezg.data_remote.networking.genre
 
 import com.google.gson.annotations.SerializedName
 

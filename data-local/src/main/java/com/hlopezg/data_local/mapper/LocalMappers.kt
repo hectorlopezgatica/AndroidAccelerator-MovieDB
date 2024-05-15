@@ -1,6 +1,6 @@
 package com.hlopezg.data_local.mapper
 
-import com.hlopezg.data_local.movie.GenreEntity
+import com.hlopezg.data_local.genre.GenreEntity
 import com.hlopezg.data_local.movie.MovieEntity
 import com.hlopezg.data_local.movie.MovieWithGenres
 import com.hlopezg.data_local.tv.TvEntity
@@ -13,7 +13,6 @@ fun MovieWithGenres.toMovie() =
     Movie(
         id = this.movieEntity.movieId,
         adult = this.movieEntity.adult,
-        backdropPath = this.movieEntity.backdropPath,
         genreIds = this.genres.map { it.toGenre() },
         originalTitle = this.movieEntity.originalTitle,
         originalLanguage = this.movieEntity.originalLanguage,
@@ -31,7 +30,6 @@ fun Movie.toMovieEntity() =
     MovieEntity(
         movieId = id,
         adult = adult,
-        backdropPath = backdropPath,
         originalTitle = originalTitle,
         originalLanguage = originalLanguage,
         overview = overview,
@@ -48,7 +46,6 @@ fun TvWithGenres.toTv() =
     Tv(
         id = this.tvEntity.id,
         adult = this.tvEntity.adult,
-        backdropPath = this.tvEntity.backdropPath,
         genreIds = this.genres.map { it.toGenre() },
         originalName = this.tvEntity.originalTitle,
         originalLanguage = this.tvEntity.originalLanguage,
@@ -65,7 +62,6 @@ fun Tv.toTvEntity() =
     TvEntity(
         id = id,
         adult = adult,
-        backdropPath = backdropPath,
         originalTitle = originalName,
         originalLanguage = originalLanguage,
         overview = overview,
@@ -79,5 +75,11 @@ fun Tv.toTvEntity() =
 fun GenreEntity.toGenre() =
     Genre(
         id = genreId,
+        name = name,
+    )
+
+fun Genre.toGenreEntity(movieId: Long) =
+    GenreEntity(
+        genreId = id,
         name = name,
     )
