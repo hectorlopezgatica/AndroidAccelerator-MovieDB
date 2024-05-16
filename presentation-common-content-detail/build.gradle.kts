@@ -49,6 +49,8 @@ dependencies {
     implementation(libs.hilt.android)
     debugImplementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.preview)
+    implementation(libs.androidx.compose.animation)
+    implementation(libs.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

@@ -1,0 +1,17 @@
+package com.hlopezg.presentation_movie.navigate
+
+import com.hlopezg.presentation_common.models.CommonContentDetail
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class ScreenMovieDetail(
+    override val id: Long,
+    override val title: String,
+    override val posterPath: String,
+    override val overview: String,
+
+    ) : CommonContentDetail {
+    override fun getUserScore(): Int {
+        TODO("Not yet implemented")
+    }
+}

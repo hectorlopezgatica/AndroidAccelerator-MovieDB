@@ -1,121 +1,71 @@
 package com.hlopezg.presentation.content
 
 import android.content.res.Configuration
-import androidx.compose.foundation.layout.Box
+import androidx.compose.animation.AnimatedVisibilityScope
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import com.hlopezg.presentation_common.models.CommonContentDetail
-import com.hlopezg.presentation_common.utils.Utils
-import com.hlopezg.presentation_common_content_detail.R
 
+@OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 fun CommonDetailScreen(
-    commonContentDetail: CommonContentDetail,
-) {
-    AdaptativePane(
-        commonContentDetail = commonContentDetail,
-    )
-}
-
-@Composable
-fun AdaptativePane(
+    animatedVisibilityScope: AnimatedVisibilityScope,
+    sharedTransitionScope: SharedTransitionScope,
     commonContentDetail: CommonContentDetail,
 ) {
     val configuration = LocalConfiguration.current
     when (configuration.orientation) {
         Configuration.ORIENTATION_LANDSCAPE -> {
-            TwoPane(commonContentDetail)
+            TwoPane(
+                animatedVisibilityScope = animatedVisibilityScope,
+                sharedTransitionScope = sharedTransitionScope,
+                commonContentDetail,
+            )
         }
 
         else -> {
-            OnePane(commonContentDetail)
+            OnePane(
+                animatedVisibilityScope = animatedVisibilityScope,
+                sharedTransitionScope = sharedTransitionScope,
+                commonContentDetail,
+            )
         }
     }
 }
 
+@OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 fun OnePane(
+    animatedVisibilityScope: AnimatedVisibilityScope,
+    sharedTransitionScope: SharedTransitionScope,
     commonContentDetail: CommonContentDetail,
 ) {
     Column {
-        FirstPane(posterPath = commonContentDetail.posterPath)
-        SecondPane(commonContentDetail = commonContentDetail)
-    }
-}
-
-@Composable
-fun TwoPane(
-    commonContentDetail: CommonContentDetail,
-) {
-    Row(modifier = Modifier.padding(16.dp)) {
-        FirstPane(posterPath = commonContentDetail.posterPath)
-        Column {
-            SecondPane(commonContentDetail = commonContentDetail)
-        }
-    }
-}
-
-
-@Composable
-fun FirstPane(
-    posterPath: String,
-) {
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        AsyncImage(
-            model = posterPath,
-            placeholder = painterResource(id = R.drawable.image_fallout),
-            contentDescription = null,
+        CommonDetailPane(
+            commonContentDetail = commonContentDetail
         )
     }
 }
 
+@OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
-fun SecondPane(
+fun TwoPane(
+    animatedVisibilityScope: AnimatedVisibilityScope,
+    sharedTransitionScope: SharedTransitionScope,
     commonContentDetail: CommonContentDetail,
 ) {
-    Column(
-        modifier = Modifier
-            .padding(16.dp)
-    ) {
-        Text(text = commonContentDetail.title)
-        if (commonContentDetail.genreIds.isNotEmpty()) {
-            Row {
-                for ((index, genre) in commonContentDetail.genreIds.withIndex()) {
-                    Text(text = genre.name)
-                    if (index != commonContentDetail.genreIds.size - 1) {
-                        Text(text = ", ")
-                    }
-                }
-            }
-        }
-        Spacer(modifier = Modifier.padding(8.dp))
-        Box(
-            contentAlignment = Alignment.Center
-        ) {
-            CircularProgressIndicator(
-                modifier = Modifier.then(Modifier.size(60.dp)),
-                progress = { commonContentDetail.getUserScore().toFloat() / 100 },
-                color = Utils.getScoreColor(commonContentDetail.getUserScore()),
+    Row(modifier = Modifier.padding(16.dp)) {
+        Column {
+            CommonDetailPane(
+                commonContentDetail = commonContentDetail
             )
-            Text(text = "${commonContentDetail.getUserScore()}%")
         }
-        Spacer(modifier = Modifier.padding(8.dp))
-        Text(text = commonContentDetail.overview)
     }
 }

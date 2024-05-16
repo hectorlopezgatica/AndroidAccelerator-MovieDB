@@ -3,6 +3,8 @@ package com.hlopezg.androidacceleratormoviedb
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionLayout
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -13,12 +15,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.hlopezg.androidacceleratormoviedb.ui.theme.AndroidAcceleratorMovieDBTheme
 import com.hlopezg.presentation.discover.DiscoverListScreen
-import com.hlopezg.presentation_common.navigation.NavRoutes
-import com.hlopezg.presentation_movie.single.MovieScreen
-import com.hlopezg.presentation_tv.single.TvScreen
+import com.hlopezg.presentation_movie.navigate.ScreenMovieDetail
+import com.hlopezg.presentation_movie.single.MovieScreenDetail
+import com.hlopezg.presentation_tv.navigate.ScreenTvDetail
+import com.hlopezg.presentation_tv.single.TvScreenDetail
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.serialization.Serializable
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -41,38 +46,43 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 fun App(
     navController: NavHostController,
 ) {
-    NavHost(navController = navController, startDestination = NavRoutes.Movies.route) {
-        composable(route = NavRoutes.Movies.route) {
-            DiscoverListScreen(
-                movieViewModel = hiltViewModel(),
-                tvViewModel = hiltViewModel(),
-                navController = navController
-            )
-        }
-        composable(route = NavRoutes.Movie.route) {
-            MovieScreen(
-                viewModel = hiltViewModel(),
-                movieInput = NavRoutes.Movie.fromEntry(it),
-            )
-        }
-        composable(route = NavRoutes.Tv.route) {
-            TvScreen(
-                viewModel = hiltViewModel(),
-                tvInput = NavRoutes.Tv.fromEntry(it),
-            )
+    SharedTransitionLayout {
+        NavHost(navController = navController, startDestination = ScreenDiscover) {
+            composable<ScreenDiscover> {
+                DiscoverListScreen(
+                    animatedVisibilityScope = this,
+                    sharedTransitionScope = this@SharedTransitionLayout,
+                    movieViewModel = hiltViewModel(),
+                    tvViewModel = hiltViewModel(),
+                    navController = navController
+                )
+            }
+            composable<ScreenMovieDetail> {
+                val args = it.toRoute<ScreenMovieDetail>()
+                MovieScreenDetail(
+                    animatedVisibilityScope = this,
+                    sharedTransitionScope = this@SharedTransitionLayout,
+                    viewModel = hiltViewModel(),
+                    commonContentDetail = args,
+                )
+            }
+            composable<ScreenTvDetail> {
+                val args = it.toRoute<ScreenTvDetail>()
+                TvScreenDetail(
+                    animatedVisibilityScope = this,
+                    sharedTransitionScope = this@SharedTransitionLayout,
+                    viewModel = hiltViewModel(),
+                    commonContentDetail = args,
+                )
+            }
         }
     }
 }
 
-/*
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AndroidAcceleratorMovieDBTheme {
-        Greeting("Android")
-    }
-}*/
+@Serializable
+object ScreenDiscover

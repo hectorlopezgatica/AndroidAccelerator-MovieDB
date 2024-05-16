@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -50,6 +51,7 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
     implementation(libs.navigation.compose)
+    implementation(libs.androidx.compose.animation)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.lifecycle.viewmodel.compose)
@@ -60,4 +62,5 @@ dependencies {
     testImplementation(libs.testing.mockito)
     testImplementation(libs.testing.mockito.inline)
     testImplementation(libs.testing.kotlinx.coroutines)
+    implementation(libs.kotlinx.serialization.json)
 }

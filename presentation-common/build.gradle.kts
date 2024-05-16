@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -56,4 +57,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     testImplementation(libs.testing.mockito)
     testImplementation(libs.testing.kotlinx.coroutines)
+    implementation(libs.kotlinx.serialization.json)
 }

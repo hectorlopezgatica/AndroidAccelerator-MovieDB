@@ -15,21 +15,6 @@ sealed class NavRoutes(
     val route: String,
     val arguments: List<NamedNavArgument> = emptyList()
 ) {
-    data object Movies: NavRoutes(ROUTE_MOVIES)
-
-    data object Movie: NavRoutes(
-        route = String.format(ROUTE_MOVIE, "{$ARG_MOVIE_ID}"),
-        arguments = listOf(navArgument(ARG_MOVIE_ID) {
-            type = NavType.LongType
-        })
-    ){
-        fun routeForMovie(movieInput: MovieInput) = String.format(ROUTE_MOVIE, movieInput.movieId)
-        fun fromEntry(entry: NavBackStackEntry): MovieInput {
-            val id = entry.arguments?.getString(ARG_MOVIE_ID) ?: ""
-            return MovieInput(id.toLong())
-        }
-    }
-
     data object Tv : NavRoutes(
         route = String.format(ROUTE_TV, "{$ARG_TV_ID}"),
         arguments = listOf(navArgument(ARG_TV_ID) {

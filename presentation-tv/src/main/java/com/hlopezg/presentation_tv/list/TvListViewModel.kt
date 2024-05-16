@@ -25,9 +25,7 @@ class TvListViewModel @Inject constructor(
             is TvListUiAction.SingleMovieClick -> {
                 submitSingleEvent(
                     TvListUiSingleEvent.OpenTvScreen(
-                        NavRoutes.Tv.routeForTv(
-                            TvInput(action.tv.id)
-                        )
+                        action.tv
                     )
                 )
             }

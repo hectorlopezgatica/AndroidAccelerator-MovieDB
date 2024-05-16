@@ -1,3 +1,5 @@
 package com.hlopezg.presentation_common.navigation
 
-data class MovieInput(val movieId: Long)
+import com.hlopezg.presentation_common.models.CommonContentDetail
+
+data class MovieInput(val commonContentDetail: CommonContentDetail)

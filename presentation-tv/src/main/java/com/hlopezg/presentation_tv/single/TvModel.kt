@@ -4,9 +4,9 @@ import com.hlopezg.presentation_common.models.CommonContentDetail
 import com.hlopezg.presentation_common.models.GenreModel
 
 data class TvModel(
-    val id: Long,
+    override val id: Long,
     val adult: Boolean,
-    override val genreIds: List<GenreModel>,
+    val genreIds: List<GenreModel>,
     val originalLanguage: String,
     val originalName: String,
     override val overview: String,
