@@ -9,11 +9,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.hlopezg.presentation_common.component.CommonScreen
@@ -50,11 +53,13 @@ fun MovieListScreen(
 
     viewModel.uiStateFlow.collectAsState().value.let { state ->
         CommonScreen(state = state) {
-            Text(text = "Movies")
+            Text(text = "Movies", modifier = Modifier.semantics {
+                this.contentDescription = "Movies List"
+            })
             MovieList(
                 animatedVisibilityScope = animatedVisibilityScope,
                 sharedTransitionScope = sharedTransitionScope,
-                it
+                it,
             ) { movieModel ->
                 viewModel.submitAction(action = MovieListUiAction.SingleMovieClick(movieModel))
             }
@@ -73,11 +78,14 @@ fun MovieList(
     with(sharedTransitionScope) {
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier.semantics {
+                this.contentDescription = "Movies LazyRow"
+            }
         ) {
-            items(movieListModel.items) { item ->
+            itemsIndexed(movieListModel.items) { index, item ->
                 AsyncImage(
                     model = item.posterPath,
-                    contentDescription = null,
+                    contentDescription = "Image Movie $index",
                     modifier = Modifier
                         .width(100.dp)
                         .clickable {

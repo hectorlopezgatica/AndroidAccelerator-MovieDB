@@ -10,15 +10,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import com.hlopezg.presentation.content.CommonDetailScreen
 import com.hlopezg.presentation.content.PosterPane
 import com.hlopezg.presentation_common.component.CommonScreen
 import com.hlopezg.presentation_common.models.CommonContentDetail
-import com.hlopezg.presentation_common.navigation.MovieInput
 
 @OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 fun MovieScreenDetail(
+    contentDescription: String = "Poster Pane",
     animatedVisibilityScope: AnimatedVisibilityScope,
     sharedTransitionScope: SharedTransitionScope,
     viewModel: MovieViewModel,
@@ -28,12 +30,14 @@ fun MovieScreenDetail(
         viewModel.handleAction(MovieUiAction.Load(commonContentDetail.id))
     }
     Column(
-        modifier = Modifier.verticalScroll(rememberScrollState())
+        modifier = Modifier.verticalScroll(rememberScrollState()).semantics {
+            this.contentDescription = contentDescription
+        }
     ) {
         PosterPane(
             animatedVisibilityScope = animatedVisibilityScope,
             sharedTransitionScope = sharedTransitionScope,
-            posterPath = commonContentDetail.posterPath
+            commonContentDetail = commonContentDetail,
         )
         viewModel.uiStateFlow.collectAsState().value.let { result ->
             CommonScreen(result) { movieModel ->

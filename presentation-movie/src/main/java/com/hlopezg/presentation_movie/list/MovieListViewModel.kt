@@ -2,14 +2,9 @@ package com.hlopezg.presentation_movie.list
 
 import androidx.lifecycle.viewModelScope
 import com.hlopezg.domain.usecase.GetMoviesUseCase
-import com.hlopezg.presentation_common.models.CommonContentDetail
-import com.hlopezg.presentation_common.models.CommonContentDetailModel
-import com.hlopezg.presentation_common.navigation.MovieInput
-import com.hlopezg.presentation_common.navigation.NavRoutes
 import com.hlopezg.presentation_common.state.LoadingType
 import com.hlopezg.presentation_common.state.MviViewModel
 import com.hlopezg.presentation_common.state.UiState
-import com.hlopezg.presentation_movie.single.MovieModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch

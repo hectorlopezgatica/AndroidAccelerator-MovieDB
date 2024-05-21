@@ -10,7 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import coil.compose.AsyncImage
+import com.hlopezg.presentation_common.models.CommonContentDetail
 import com.hlopezg.presentation_common_content_detail.R
 
 @OptIn(ExperimentalSharedTransitionApi::class)
@@ -18,7 +21,7 @@ import com.hlopezg.presentation_common_content_detail.R
 fun PosterPane(
     animatedVisibilityScope: AnimatedVisibilityScope,
     sharedTransitionScope: SharedTransitionScope,
-    posterPath: String,
+    commonContentDetail: CommonContentDetail,
 ) {
     with(sharedTransitionScope) {
         Column(
@@ -33,8 +36,10 @@ fun PosterPane(
                         tween(durationMillis = 1000)
 
                     }
-                ),
-                model = posterPath,
+                ).semantics {
+                    this.contentDescription = "Detail Image"
+                },
+                model = commonContentDetail.posterPath,
                 placeholder = painterResource(id = R.drawable.image_fallout),
                 contentDescription = null,
             )
