@@ -1,13 +1,14 @@
 package com.hlopezg.presentation_common.state
 
-sealed class UiState<out T: Any> {
+sealed class UiState<out T : Any> {
     data class Loading(val type: LoadingType) : UiState<Nothing>()
-    data class Error(val errorMessage: String): UiState<Nothing>()
-    data class Success<T: Any>(val data: T): UiState<T>()
+    data class Error(val errorMessage: String) : UiState<Nothing>()
+    data class Success<T : Any>(val data: T) : UiState<T>()
 }
 
-sealed class LoadingType{
-    data object RowList: LoadingType()
-    data object DefaultFullScreenSpinner: LoadingType()
-    data object ContentDetail: LoadingType()
+sealed class LoadingType {
+    data object RowList : LoadingType()
+    data object DefaultFullScreenSpinner : LoadingType()
+    data object ContentDetail : LoadingType()
 }
+

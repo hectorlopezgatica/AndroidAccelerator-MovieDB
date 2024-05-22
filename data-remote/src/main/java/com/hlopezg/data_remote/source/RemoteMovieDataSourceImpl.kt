@@ -44,7 +44,12 @@ class RemoteMovieDataSourceImpl @Inject constructor(
         Movie(
             id = movieApiModel.id,
             adult = movieApiModel.adult,
-            genreIds = if(genre != null) listOf(genre) else movieApiModel.genreIds.map { Genre(it, "") },
+            genreIds = if (genre != null) listOf(genre) else movieApiModel.genreIds.map {
+                Genre(
+                    it,
+                    ""
+                )
+            },
             originalLanguage = movieApiModel.originalLanguage,
             originalTitle = movieApiModel.originalTitle,
             overview = movieApiModel.overview,

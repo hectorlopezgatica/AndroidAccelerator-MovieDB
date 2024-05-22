@@ -35,7 +35,8 @@ class NetworkModule {
         .build()
 
     @Provides
-    fun provideMovieService(retrofit: Retrofit): MovieService = retrofit.create(MovieService::class.java)
+    fun provideMovieService(retrofit: Retrofit): MovieService =
+        retrofit.create(MovieService::class.java)
 
     @Provides
     fun provideTvService(retrofit: Retrofit): TvService = retrofit.create(TvService::class.java)

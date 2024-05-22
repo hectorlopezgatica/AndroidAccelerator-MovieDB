@@ -3,15 +3,10 @@ package com.hlopezg.presentation.content
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionLayout
-import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.hlopezg.presentation_common.models.CommonContentDetail
 import com.hlopezg.presentation_common.models.GenreModel
-import com.hlopezg.presentation_common.navigation.NavRoutes
 
 @OptIn(ExperimentalSharedTransitionApi::class)
 @Preview(showSystemUi = true)
@@ -24,12 +19,12 @@ fun PreviewCommonDetailScreen() {
         GenreModel(id = 35, name = "Comedy"),
         GenreModel(id = 14, name = "Fantasy")
     )
-    SharedTransitionLayout{
-        AnimatedContent (
+    SharedTransitionLayout {
+        AnimatedContent(
             true,
             label = "basic_transition"
-        ){targetState ->
-            if(targetState){
+        ) { targetState ->
+            if (targetState) {
                 CommonDetailScreen(
                     animatedVisibilityScope = this@AnimatedContent,
                     sharedTransitionScope = this@SharedTransitionLayout,

@@ -1,7 +1,5 @@
 package com.hlopezg.domain.entity
 
-import android.util.Log
-
 sealed class UseCaseException(cause: Throwable) : Throwable(cause) {
 
     class MovieException(cause: Throwable) : UseCaseException(cause)

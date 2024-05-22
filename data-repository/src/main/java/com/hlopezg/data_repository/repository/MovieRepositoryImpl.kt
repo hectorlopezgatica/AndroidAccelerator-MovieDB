@@ -11,16 +11,17 @@ import kotlinx.coroutines.flow.onEach
 class MovieRepositoryImpl(
     private val localMovieDataSource: LocalMovieDataSource,
     private val remoteMovieDataSource: RemoteMovieDataSource,
-): MovieRepository {
+) : MovieRepository {
     override fun getMovieList(): Flow<List<Movie>> = remoteMovieDataSource.getMovies()
         .onEach {
             localMovieDataSource.saveMovies(it)
         }
+
     override fun getMovie(id: Long): Flow<Movie> = remoteMovieDataSource.getMovie(id).onEach {
         localMovieDataSource.saveMovies(listOf(it))
     }
 
-    override fun saveMovies(movies: List<Movie>):Flow<List<Movie>> = flow {
+    override fun saveMovies(movies: List<Movie>): Flow<List<Movie>> = flow {
         localMovieDataSource.saveMovies(movies)
         this.emit(movies)
     }

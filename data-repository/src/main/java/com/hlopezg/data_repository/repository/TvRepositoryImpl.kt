@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.flow
 class TvRepositoryImpl(
     private val localTvDataSource: LocalTvDataSource,
     private val remoteTvDataSource: RemoteTvDataSource,
-): TvRepository {
+) : TvRepository {
     override fun getTvList(): Flow<List<Tv>> = remoteTvDataSource.getTvs()
     override fun getTv(id: Long): Flow<Tv> = remoteTvDataSource.getTv(id)
 

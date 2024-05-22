@@ -2,8 +2,6 @@ package com.hlopezg.presentation_tv.list
 
 import androidx.lifecycle.viewModelScope
 import com.hlopezg.domain.usecase.GetTvsUseCase
-import com.hlopezg.presentation_common.navigation.NavRoutes
-import com.hlopezg.presentation_common.navigation.TvInput
 import com.hlopezg.presentation_common.state.LoadingType
 import com.hlopezg.presentation_common.state.MviViewModel
 import com.hlopezg.presentation_common.state.UiState

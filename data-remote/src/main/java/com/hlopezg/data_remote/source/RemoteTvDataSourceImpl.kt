@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class RemoteTvDataSourceImpl  @Inject constructor(private val tvService: TvService) :
+class RemoteTvDataSourceImpl @Inject constructor(private val tvService: TvService) :
     RemoteTvDataSource {
 
     override fun getTvs(): Flow<List<Tv>> = flow {

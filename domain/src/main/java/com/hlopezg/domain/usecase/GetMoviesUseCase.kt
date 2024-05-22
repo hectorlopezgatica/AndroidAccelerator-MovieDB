@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.map
 class GetMoviesUseCase(
     configuration: Configuration,
     private val movieRepository: MovieRepository,
-): UseCase<GetMoviesUseCase.Request, GetMoviesUseCase.Response>(configuration) {
+) : UseCase<GetMoviesUseCase.Request, GetMoviesUseCase.Response>(configuration) {
 
     override fun process(request: Request): Flow<Response> =
         movieRepository.getMovieList()

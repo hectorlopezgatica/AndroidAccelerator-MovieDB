@@ -5,6 +5,7 @@ interface CommonContentDetail {
     val title: String
     val posterPath: String
     val overview: String
-   // val genreIds: List<GenreModel>
+
+    // val genreIds: List<GenreModel>
     fun getUserScore(): Int
 }

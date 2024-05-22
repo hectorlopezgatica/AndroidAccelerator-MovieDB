@@ -5,10 +5,10 @@ import com.hlopezg.domain.repository.TvRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class GetTvUseCase (
+class GetTvUseCase(
     configuration: Configuration,
     private val repository: TvRepository,
-): UseCase<GetTvUseCase.Request, GetTvUseCase.Response>(configuration) {
+) : UseCase<GetTvUseCase.Request, GetTvUseCase.Response>(configuration) {
     override fun process(request: Request): Flow<Response> =
         repository.getTv(request.tvId).map {
             Response(it)

@@ -15,7 +15,7 @@ import com.hlopezg.presentation_common.state.UiState
 fun <T : Any> CommonScreen(state: UiState<T>, onSuccess: @Composable (T) -> Unit) {
     when (state) {
         is UiState.Loading -> {
-            when(state.type){
+            when (state.type) {
                 LoadingType.ContentDetail -> LoadingComponentDetail()
                 LoadingType.DefaultFullScreenSpinner -> Loading()
                 LoadingType.RowList -> LoadingComponentList()

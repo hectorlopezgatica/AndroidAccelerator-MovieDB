@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 class GenreRepositoryImpl(
     private val localGenreDataSource: LocalGenreDataSource,
-): GenreRepository {
+) : GenreRepository {
     override fun getGenreList(): Flow<List<Genre>> =
         localGenreDataSource.getGenres()
 

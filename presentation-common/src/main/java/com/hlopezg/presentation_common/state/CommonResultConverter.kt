@@ -2,8 +2,8 @@ package com.hlopezg.presentation_common.state
 
 import com.hlopezg.domain.entity.Result
 
-abstract class CommonResultConverter<T: Any, R: Any> {
-    fun convert(result: Result<T>) : UiState<R> {
+abstract class CommonResultConverter<T : Any, R : Any> {
+    fun convert(result: Result<T>): UiState<R> {
         return when (result) {
             is Result.Error -> {
                 UiState.Error(result.exception.localizedMessage.orEmpty())

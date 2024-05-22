@@ -29,16 +29,18 @@ fun PosterPane(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             AsyncImage(
-                modifier = Modifier.sharedElement(
-                    state = rememberSharedContentState(key = "image/AD"),
-                    animatedVisibilityScope = animatedVisibilityScope,
-                    boundsTransform = { _, _ ->
-                        tween(durationMillis = 1000)
+                modifier = Modifier
+                    .sharedElement(
+                        state = rememberSharedContentState(key = "image/${commonContentDetail.id}"),
+                        animatedVisibilityScope = animatedVisibilityScope,
+                        boundsTransform = { _, _ ->
+                            tween(durationMillis = 1000)
 
-                    }
-                ).semantics {
-                    this.contentDescription = "Detail Image"
-                },
+                        }
+                    )
+                    .semantics {
+                        this.contentDescription = "Detail Image"
+                    },
                 model = commonContentDetail.posterPath,
                 placeholder = painterResource(id = R.drawable.image_fallout),
                 contentDescription = null,

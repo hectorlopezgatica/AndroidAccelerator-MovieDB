@@ -10,16 +10,49 @@ import androidx.compose.ui.unit.dp
 
 @Preview(showSystemUi = true)
 @Composable
-fun PreviewLoadingComponentDetail(){
+fun PreviewLoadingComponentDetail() {
     LoadingComponentDetail()
 }
 
 @Composable
 fun LoadingComponentDetail() {
     Column {
-        ComponentRectangleLineShort(Modifier.padding(paddingValues = PaddingValues(top = 8.dp, bottom = 8.dp, start = 16.dp, end = 16.dp)))
-        ComponentRectangleLineLong(Modifier.padding(paddingValues = PaddingValues(bottom = 8.dp, start = 16.dp, end = 16.dp)))
-        ComponentCircle(Modifier.padding(paddingValues = PaddingValues(bottom = 8.dp, start = 16.dp, end = 16.dp)))
-        ComponentRectangleParagraphLong(Modifier.padding(paddingValues = PaddingValues(bottom = 8.dp, start = 16.dp, end = 16.dp)))
+        ComponentRectangleLineShort(
+            Modifier.padding(
+                paddingValues = PaddingValues(
+                    top = 8.dp,
+                    bottom = 8.dp,
+                    start = 16.dp,
+                    end = 16.dp
+                )
+            )
+        )
+        ComponentRectangleLineLong(
+            Modifier.padding(
+                paddingValues = PaddingValues(
+                    bottom = 8.dp,
+                    start = 16.dp,
+                    end = 16.dp
+                )
+            )
+        )
+        ComponentCircle(
+            Modifier.padding(
+                paddingValues = PaddingValues(
+                    bottom = 8.dp,
+                    start = 16.dp,
+                    end = 16.dp
+                )
+            )
+        )
+        ComponentRectangleParagraphLong(
+            Modifier.padding(
+                paddingValues = PaddingValues(
+                    bottom = 8.dp,
+                    start = 16.dp,
+                    end = 16.dp
+                )
+            )
+        )
     }
 }

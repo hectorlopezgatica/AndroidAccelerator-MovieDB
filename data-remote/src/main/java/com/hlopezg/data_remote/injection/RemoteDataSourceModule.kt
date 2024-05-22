@@ -11,7 +11,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class RemoteDataSourceModule{
+abstract class RemoteDataSourceModule {
     @Binds
     abstract fun bindsMovieDataSource(movieDataSourceImpl: RemoteMovieDataSourceImpl): RemoteMovieDataSource
 

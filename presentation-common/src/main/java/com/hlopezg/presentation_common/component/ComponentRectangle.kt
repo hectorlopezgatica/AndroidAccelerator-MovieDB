@@ -23,9 +23,10 @@ import androidx.compose.ui.unit.dp
 
 @Preview(showSystemUi = true)
 @Composable
-fun PreviewComponentRectangleFullSize(){
+fun PreviewComponentRectangleFullSize() {
     ComponentRectangleFullSize()
 }
+
 @Composable
 fun ComponentRectangleFullSize() {
     Box(
@@ -35,6 +36,7 @@ fun ComponentRectangleFullSize() {
             .shimmerLoadingAnimation()
     )
 }
+
 @Composable
 fun ComponentRectangle() {
     Box(

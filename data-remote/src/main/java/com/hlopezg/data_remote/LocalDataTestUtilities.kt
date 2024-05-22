@@ -4,8 +4,6 @@ import com.hlopezg.data_remote.networking.genre.GenreApiModel
 import com.hlopezg.data_remote.networking.movie.MovieApiModel
 import com.hlopezg.data_remote.networking.tv.TvApiModel
 import com.hlopezg.domain.entity.Genre
-import com.hlopezg.domain.entity.Movie
-import com.hlopezg.domain.entity.Tv
 
 interface FakeRepositoryFactory {
     fun getMovieApiModel(): MovieApiModel
