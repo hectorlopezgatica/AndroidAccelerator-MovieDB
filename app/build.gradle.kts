@@ -86,5 +86,5 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.kotlinx.serialization.json)
-
+    testImplementation(libs.konsist)
 }
