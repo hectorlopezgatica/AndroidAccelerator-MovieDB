@@ -1,31 +1,31 @@
 [versions]
-agp = "8.4.1"
+agp = "8.4.2"
 konsist = "0.15.1"
 kotlin = "1.9.23"
 coreKtx = "1.13.1"
 junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.8.0"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+lifecycleRuntimeKtx = "2.8.3"
 activityCompose = "1.9.0"
-composeBom = "2024.05.00"
+composeBom = "2024.06.00"
 appcompat = "1.6.1"
 room = "2.6.1"
 okHttp = "4.12.0"
 retrofit = "2.11.0"
 daggerHilt = "2.51.1"
-navigationCompose = "2.8.0-beta01"
+navigationCompose = "2.8.0-beta04"
 hiltNavigationCompose = "1.2.0"
-viewModel = "2.8.0"
+viewModel = "2.8.3"
 material3Android = "1.2.1"
 material3WindowSizeClassAndroid = "1.2.1"
 mockitoVersion = "5.3.1"
 mockitoInlineVersion = "5.2.0"
 kotlinxCoroutines = "1.8.1"
 gson = "2.11.0"
-test-jvm = "1.7.3"
-uiCompose = "1.7.0-beta01"
-animationCompose = "1.7.0-beta01"
+test-jvm = "1.8.1"
+uiCompose = "1.7.0-beta04"
+animationCompose = "1.7.0-beta04"
 foundationCompose = "1.7.0-alpha07"
 serialization = "1.6.3"
 
@@ -70,7 +70,7 @@ testing-kotlinx-coroutines-jvm = { group = 'org.jetbrains.kotlinx', name = 'kotl
 kotlinx-serialization-json = { group = 'org.jetbrains.kotlinx', name = 'kotlinx-serialization-json', version.ref = "serialization" }
 
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
-jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

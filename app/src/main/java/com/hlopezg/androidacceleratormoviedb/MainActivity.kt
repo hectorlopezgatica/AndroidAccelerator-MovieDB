@@ -34,11 +34,12 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colorScheme.background,
                 ) {
                     val navController = rememberNavController()
                     App(
                         navController,
+                        modifier = Modifier
                     )
                 }
             }
@@ -50,6 +51,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun App(
     navController: NavHostController,
+    modifier: Modifier,
 ) {
     SharedTransitionLayout {
         NavHost(navController = navController, startDestination = ScreenDiscover) {

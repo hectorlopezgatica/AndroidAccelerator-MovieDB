@@ -24,7 +24,7 @@ class RemoteMovieDataSourceImplTest {
     fun testGetMoviesApiModel() = runTest {
         val remotePosts = LocalDataTestUtilities().getMoviesApiModel()
         val expectedPosts = DomainTestUtilities().getMovies()
-        val discoverMovieApiModel = DiscoverMovieApiModel(1, remotePosts, 1, 2)
+        val discoverMovieApiModel = DiscoverMovieApiModel(1, remotePosts, 0, 2)
         whenever(movieService.getDiscoverMovies()).thenReturn(discoverMovieApiModel)
         //whenever(localGenreDataSource.getGenre(1L)).thenReturn(DomainTestUtilities().getMovies().get(0))
         val result = movieDataSource.getMovies().first()
