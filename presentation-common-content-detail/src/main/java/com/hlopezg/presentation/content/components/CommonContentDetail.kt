@@ -1,4 +1,4 @@
-package com.hlopezg.presentation.content
+package com.hlopezg.presentation.content.components
 
 import android.content.res.Configuration
 import androidx.compose.animation.AnimatedVisibilityScope
@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
+import com.hlopezg.presentation.content.CommonContentDetailViewModel
 import com.hlopezg.presentation_common.models.CommonContentDetail
 
 @OptIn(ExperimentalSharedTransitionApi::class)
@@ -19,6 +20,7 @@ fun CommonDetailScreen(
     animatedVisibilityScope: AnimatedVisibilityScope,
     sharedTransitionScope: SharedTransitionScope,
     commonContentDetail: CommonContentDetail,
+    viewModel: CommonContentDetailViewModel,
 ) {
     val configuration = LocalConfiguration.current
     when (configuration.orientation) {
@@ -26,7 +28,8 @@ fun CommonDetailScreen(
             TwoPane(
                 animatedVisibilityScope = animatedVisibilityScope,
                 sharedTransitionScope = sharedTransitionScope,
-                commonContentDetail,
+                commonContentDetail = commonContentDetail,
+                viewModel = viewModel,
             )
         }
 
@@ -34,7 +37,8 @@ fun CommonDetailScreen(
             OnePane(
                 animatedVisibilityScope = animatedVisibilityScope,
                 sharedTransitionScope = sharedTransitionScope,
-                commonContentDetail,
+                commonContentDetail = commonContentDetail,
+                viewModel = viewModel,
             )
         }
     }
@@ -46,10 +50,12 @@ fun OnePane(
     animatedVisibilityScope: AnimatedVisibilityScope,
     sharedTransitionScope: SharedTransitionScope,
     commonContentDetail: CommonContentDetail,
+    viewModel: CommonContentDetailViewModel,
 ) {
     Column {
         CommonDetailPane(
-            commonContentDetail = commonContentDetail
+            commonContentDetail = commonContentDetail,
+            viewModel = viewModel,
         )
     }
 }
@@ -60,11 +66,13 @@ fun TwoPane(
     animatedVisibilityScope: AnimatedVisibilityScope,
     sharedTransitionScope: SharedTransitionScope,
     commonContentDetail: CommonContentDetail,
+    viewModel: CommonContentDetailViewModel,
 ) {
     Row(modifier = Modifier.padding(16.dp)) {
         Column {
             CommonDetailPane(
-                commonContentDetail = commonContentDetail
+                commonContentDetail = commonContentDetail,
+                viewModel = viewModel,
             )
         }
     }

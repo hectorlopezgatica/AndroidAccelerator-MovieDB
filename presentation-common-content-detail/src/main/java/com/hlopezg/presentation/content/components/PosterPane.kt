@@ -1,4 +1,4 @@
-package com.hlopezg.presentation.content
+package com.hlopezg.presentation.content.components
 
 import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi

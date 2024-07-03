@@ -1,10 +1,11 @@
-package com.hlopezg.presentation.content
+package com.hlopezg.presentation.content.components
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionLayout
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.hlopezg.presentation_common.models.CommonContentDetail
 import com.hlopezg.presentation_common.models.GenreModel
 
@@ -34,7 +35,8 @@ fun PreviewCommonDetailScreen() {
                         "Po is gearing up to become the spiritual leader of his Valley of Peace, but also needs someone to take his place as Dragon Warrior. As such, he will train a new kung fu practitioner for the spot and will encounter a villain called the Chameleon who conjures villains from the past.",
                         genres,
                         id = 1L,
-                    )
+                    ),
+                    viewModel = hiltViewModel(),
                 )
             }
         }

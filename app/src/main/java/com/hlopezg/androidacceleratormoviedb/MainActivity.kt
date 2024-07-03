@@ -69,16 +69,14 @@ fun App(
                 MovieScreenDetail(
                     animatedVisibilityScope = this,
                     sharedTransitionScope = this@SharedTransitionLayout,
-                    viewModel = hiltViewModel(),
                     commonContentDetail = args,
                 )
             }
             composable<ScreenTvDetail> {
                 val args = it.toRoute<ScreenTvDetail>()
-                TvScreenDetail(
+                 TvScreenDetail(
                     animatedVisibilityScope = this,
                     sharedTransitionScope = this@SharedTransitionLayout,
-                    viewModel = hiltViewModel(),
                     commonContentDetail = args,
                 )
             }

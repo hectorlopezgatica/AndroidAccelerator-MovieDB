@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="where_I_can_watch">¿Donde ver?</string>
+    <string name="show_me_where_i_can_watch">Muestame donde puedo ver la película \'%1$s\'</string>
+    <string name="understood">¡Entendido!</string>
+</resources>

@@ -10,5 +10,6 @@ sealed class LoadingType {
     data object RowList : LoadingType()
     data object DefaultFullScreenSpinner : LoadingType()
     data object ContentDetail : LoadingType()
+    data object NoLoading : LoadingType()
 }
 

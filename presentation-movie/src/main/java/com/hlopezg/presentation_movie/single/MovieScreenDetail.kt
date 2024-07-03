@@ -12,8 +12,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import com.hlopezg.presentation.content.CommonDetailScreen
-import com.hlopezg.presentation.content.PosterPane
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.hlopezg.presentation.content.CommonContentDetailViewModel
+import com.hlopezg.presentation.content.components.CommonDetailScreen
+import com.hlopezg.presentation.content.components.PosterPane
 import com.hlopezg.presentation_common.component.CommonScreen
 import com.hlopezg.presentation_common.models.CommonContentDetail
 
@@ -23,7 +25,8 @@ fun MovieScreenDetail(
     contentDescription: String = "Poster Pane",
     animatedVisibilityScope: AnimatedVisibilityScope,
     sharedTransitionScope: SharedTransitionScope,
-    viewModel: MovieViewModel,
+    viewModel: MovieViewModel = hiltViewModel(),
+    commonContentDetailViewModel: CommonContentDetailViewModel = hiltViewModel(),
     commonContentDetail: CommonContentDetail,
 ) {
     LaunchedEffect(key1 = Unit) {
@@ -45,6 +48,7 @@ fun MovieScreenDetail(
                     animatedVisibilityScope = animatedVisibilityScope,
                     sharedTransitionScope = sharedTransitionScope,
                     commonContentDetail = movieModel,
+                    viewModel = commonContentDetailViewModel,
                 )
             }
         }

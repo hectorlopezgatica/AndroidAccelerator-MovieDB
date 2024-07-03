@@ -28,6 +28,7 @@ uiCompose = "1.7.0-beta04"
 animationCompose = "1.7.0-beta04"
 foundationCompose = "1.7.0-alpha07"
 serialization = "1.6.3"
+gemini = "0.8.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -68,6 +69,7 @@ testing-mockito-inline = { group = "org.mockito", name = "mockito-inline", versi
 testing-kotlinx-coroutines = { group = 'org.jetbrains.kotlinx', name = 'kotlinx-coroutines-test', version.ref = "kotlinxCoroutines" }
 testing-kotlinx-coroutines-jvm = { group = 'org.jetbrains.kotlinx', name = 'kotlinx-coroutines-test-jvm', version.ref = "test-jvm" }
 kotlinx-serialization-json = { group = 'org.jetbrains.kotlinx', name = 'kotlinx-serialization-json', version.ref = "serialization" }
+gemini-ia = { group = 'com.google.ai.client.generativeai', name = 'generativeai', version.ref = "gemini" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
