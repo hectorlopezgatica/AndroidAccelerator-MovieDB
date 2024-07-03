@@ -13,7 +13,7 @@ class GenerativeModule {
     @Provides
     fun provideGenerativeModule(
     ): GenerativeModel = GenerativeModel(
-        modelName = "gemini-1.5-flash",
+        modelName = "gemini-1.5-pro-latest",
         apiKey = BuildConfig.GEN_IA_KEY
     )
 }

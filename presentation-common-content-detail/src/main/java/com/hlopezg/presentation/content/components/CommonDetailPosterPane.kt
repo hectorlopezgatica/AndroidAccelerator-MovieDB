@@ -35,7 +35,6 @@ fun PosterPane(
                         animatedVisibilityScope = animatedVisibilityScope,
                         boundsTransform = { _, _ ->
                             tween(durationMillis = 1000)
-
                         }
                     )
                     .semantics {

@@ -46,7 +46,6 @@ fun CommonDetailPane(
             mutableStateOf(false)
         }
 
-
         Text(text = commonContentDetail.title)
         /* if (commonContentDetail.genreIds.isNotEmpty()) {
             Row {
@@ -71,14 +70,16 @@ fun CommonDetailPane(
         }
         Spacer(modifier = Modifier.padding(8.dp))
         Text(text = commonContentDetail.overview)
+        Spacer(modifier = Modifier.padding(8.dp))
         viewModel.uiStateFlow.collectAsState().value.let { state ->
-            when(state){
-                is UiState.Error -> { }
+            when (state) {
+                is UiState.Error -> {}
                 is UiState.Loading -> {
                     Button(onClick = {}) {
                         CircularProgressIndicator(color = Color.Red)
                     }
                 }
+
                 is UiState.Success -> {
                     Button(onClick = {
                         shouldShowDialog.value = true
@@ -92,14 +93,11 @@ fun CommonDetailPane(
                     }
                     if (shouldShowDialog.value) {
                         AlertDialog(
-                            icon = {
-                            },
+                            icon = { },
                             text = {
                                 Text(text = state.data.title)
                             },
-                            onDismissRequest = {
-
-                            },
+                            onDismissRequest = { },
                             confirmButton = {
                                 TextButton(
                                     onClick = {
@@ -114,7 +112,5 @@ fun CommonDetailPane(
                 }
             }
         }
-
-
-        }
     }
+}

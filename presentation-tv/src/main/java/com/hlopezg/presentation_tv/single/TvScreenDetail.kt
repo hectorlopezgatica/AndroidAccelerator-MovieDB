@@ -14,7 +14,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.hlopezg.presentation.content.CommonContentDetailViewModel
-import com.hlopezg.presentation.content.components.CommonDetailScreen
+import com.hlopezg.presentation.content.components.CommonDetailPane
 import com.hlopezg.presentation.content.components.PosterPane
 import com.hlopezg.presentation_common.component.CommonScreen
 import com.hlopezg.presentation_common.models.CommonContentDetail
@@ -44,9 +44,7 @@ fun TvScreenDetail(
         )
         viewModel.uiStateFlow.collectAsState().value.let { result ->
             CommonScreen(result) { movieModel ->
-                CommonDetailScreen(
-                    animatedVisibilityScope = animatedVisibilityScope,
-                    sharedTransitionScope = sharedTransitionScope,
+                CommonDetailPane(
                     commonContentDetail = movieModel,
                     viewModel = commonContentDetailViewModel,
                 )

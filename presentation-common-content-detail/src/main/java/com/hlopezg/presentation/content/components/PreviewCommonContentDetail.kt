@@ -26,9 +26,7 @@ fun PreviewCommonDetailScreen() {
             label = "basic_transition"
         ) { targetState ->
             if (targetState) {
-                CommonDetailScreen(
-                    animatedVisibilityScope = this@AnimatedContent,
-                    sharedTransitionScope = this@SharedTransitionLayout,
+                CommonDetailPane(
                     PreviewContentDetail(
                         "Kung Fu Panda",
                         "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/ajnzOECvXpa7VcVx0RSlq39XgHe.jpg",
